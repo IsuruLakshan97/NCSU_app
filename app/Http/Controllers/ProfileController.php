@@ -30,14 +30,6 @@ class ProfileController extends Controller
 
     public function create(){
 
-        $user = auth()->user();
-
-        if($user->id != 1){
-            $this->renderable(function (InvalidSignatureException $e) {
-                return response()->view('error.link-expired', [], 403);
-            });
-        }
-
         $faculties = DB::table('faculties')->get();
 
         return view('profile.create') -> with('faculty', $faculties);
@@ -45,13 +37,6 @@ class ProfileController extends Controller
 
     public function delete(User $user)
     {
-        $user = auth()->user();
-
-        if($user->id != 1){
-            $this->renderable(function (InvalidSignatureException $e) {
-                return response()->view('error.link-expired', [], 403);
-            });
-        }
         
         $deleted = DB::table('users')->where('id', '=', $user->id)->delete();
 
@@ -60,14 +45,6 @@ class ProfileController extends Controller
     }
 
     public function store(){
-
-        $user = auth()->user();
-
-        if($user->id != 1){
-            $this->renderable(function (InvalidSignatureException $e) {
-                return response()->view('error.link-expired', [], 403);
-            });
-        }
 
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
