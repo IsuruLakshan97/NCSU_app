@@ -44,6 +44,7 @@
                     <P> This website is used to collect the data of the academic staff University of Peradeniya. Please click the FILL FORUM button to enter the data..</P>
                     <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Fill forum</a>
                     <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Login</a>
+                    <a href="{{ route('catalogue.index') }}" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">Data Catalogue</a>
                 </div>
                 <div class="col-md-6 text-center">
                     <img src="/img/books.png" class="img-fluid" alt="Responsive image">
