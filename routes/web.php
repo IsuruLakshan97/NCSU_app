@@ -29,5 +29,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/profile/create', [App\Http\Controllers\ProfileController::class, 'create']);
 
     Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'delete'])->name('profile.destroy');
+
+    Route::post('/faculty', [App\Http\Controllers\FacultyController::class, 'store'])->name('faculty.store');
+
+    Route::get('/faculty/create', [App\Http\Controllers\FacultyController::class, 'create']);
 });
 
