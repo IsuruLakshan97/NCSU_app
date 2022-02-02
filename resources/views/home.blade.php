@@ -2,22 +2,56 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    @if ($user->id === 1)
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        @section('navbar')
+        <a class="dropdown-item" href="/profile/create">Add new user</a>
+        
+        @endsection
 
-                    {{ __('You are logged in!') }}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Faculty</th>
+                <th scope="col">Department</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach($name as $data)
+                <tr>
+                    <th scope="row">{{$data->id}}</th>
+                    <td>{{$data->name}}</td>
+                    <td>{{$data->username}}</td>
+                    <td>{{$data->email}}</td>
+                    <td>{{$faculty::find($data->faculty_id)->name}}</td>
+                    <td>{{$data->password}}</td><!-- need to change to department values -->
+                    <td><a type="button" class="btn btn-primary btn-sm" role="button" href="/profile/{{$data->id}}">Delete</a></td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    @else
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Dashboard') }}</div>
+
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        {{ __('You are logged in!') }}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 </div>
 @endsection
