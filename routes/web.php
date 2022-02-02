@@ -22,6 +22,8 @@ Auth::routes(['register' => false]);
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
 
+Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
+
 Route::group(['middleware' => ['auth', 'admin']], function() {
     // your routes
     Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.store');
