@@ -4,31 +4,88 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Routing\Exceptions\InvalidSignatureException;
 
 class ProfileController extends Controller
 {
     public function _construct(){
+
         $this->middleware('auth');
+        
     }
 
     public function index()
     {
         $user = auth()->user();
 
-        if($user->id == 1){
+        $users = DB::table('users')->get();
 
-            $users = DB::table('users')->get();
-            $faculty = new \App\Models\faculty;
-            return view('admin')->with('name',$users)->with('faculty', $faculty);
+        $faculty = new \App\Models\faculty;
 
-        }
-        else{
-
-            return view('home');
-
-        }    
-            
+        return view('home')->with('name',$users)->with('faculty', $faculty)->with('user',$user);
         
+    }
+
+    public function create(){
+
+        $user = auth()->user();
+
+        if($user->id != 1){
+            $this->renderable(function (InvalidSignatureException $e) {
+                return response()->view('error.link-expired', [], 403);
+            });
+        }
+
+        $faculties = DB::table('faculties')->get();
+
+        return view('profile.create') -> with('faculty', $faculties);
+    }
+
+    public function delete(User $user)
+    {
+        $user = auth()->user();
+
+        if($user->id != 1){
+            $this->renderable(function (InvalidSignatureException $e) {
+                return response()->view('error.link-expired', [], 403);
+            });
+        }
+        
+        $deleted = DB::table('users')->where('id', '=', $user->id)->delete();
+
+        return redirect('/profile');
+
+    }
+
+    public function store(){
+
+        $user = auth()->user();
+
+        if($user->id != 1){
+            $this->renderable(function (InvalidSignatureException $e) {
+                return response()->view('error.link-expired', [], 403);
+            });
+        }
+
+        $data = request()->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'faculty_id' => ['required','int','exists:faculties,id'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'faculty_id' => $data['faculty_id'],
+            'password' => Hash::make($data['password']),
+        ]);
+
+        return redirect('/profile');
+
     }
 }

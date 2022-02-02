@@ -21,4 +21,13 @@ Auth::routes();
 // Auth::routes(['register' => false]);
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    // your routes
+    Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.store');
+
+    Route::get('/profile/create', [App\Http\Controllers\ProfileController::class, 'create']);
+
+    Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'delete'])->name('profile.destroy');
+});
+
