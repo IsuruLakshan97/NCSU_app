@@ -5,31 +5,15 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+class DepartmentSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $faculty_list = [
-            ['id'=> 1, 'name'=>'Faculty of Agriculture'],
-            ['id'=> 2, 'name'=>'Faculty of Arts'],
-            ['id'=> 3, 'name'=>'Faculty of Dental Sciences'],
-            ['id'=> 4, 'name'=>'Faculty of Engineering'],
-            ['id'=> 5, 'name'=>'Faculty of Medicine'],
-            ['id'=> 6, 'name'=>'Faculty of Science'],
-            ['id'=> 7, 'name'=>'Faculty of Veterinary Medicine and Animal Science'],
-            ['id'=> 8, 'name'=>'Faculty of Allied Health Sciences']
-        ];
-
-        // If the table faculties has no data, seed them with dummy data
-        if (DB::table('faculties')->count() == 0) {
-            DB::table('faculties')->insert($faculty_list);
-        }
-
         $department_list = [
             ['id'=> 1, 'name'=> 'Department of Chemical & Process Engineering', 'faculty_id'=> 4],
             ['id'=> 2, 'name'=> 'Department of Civil Engineering', 'faculty_id'=> 4],
@@ -45,9 +29,5 @@ class DatabaseSeeder extends Seeder
         if (DB::table('departments')->count() == 0) {
             DB::table('departments')->insert($department_list);
         }
-
-        $user_list = [
-            [],
-        ];
     }
 }
