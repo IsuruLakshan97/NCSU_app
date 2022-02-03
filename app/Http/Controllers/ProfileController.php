@@ -20,9 +20,10 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
 
-        $users = DB::table('users')->get();
-
+        // $users = DB::table('users')->get();
+        $users = User::all();
         $faculty = new \App\Models\faculty;
+        $department = new \App\Models\Department;
 
         return view('home')->with('name',$users)->with('faculty', $faculty)->with('user',$user);
         
@@ -46,11 +47,14 @@ class ProfileController extends Controller
 
     public function store(){
 
+        // dd(request()->all());
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'faculty_id' => ['required','int','exists:faculties,id'],
+            'is_admin' =>['required','boolean'],
+            'remark' => ['string', 'max:100'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
@@ -59,6 +63,8 @@ class ProfileController extends Controller
             'email' => $data['email'],
             'username' => $data['username'],
             'faculty_id' => $data['faculty_id'],
+            'is_admin' => $data['is_admin'],
+            'remark' => $data['remark'],
             'password' => Hash::make($data['password']),
         ]);
 

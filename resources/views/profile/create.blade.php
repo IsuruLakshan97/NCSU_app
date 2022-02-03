@@ -72,6 +72,40 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="active" class="col-md-4 col-form-label text-md-end">Type</label>
+                            
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="is_admin" id="flexRadioDefault1" value=1>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Super admin
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="is_admin" id="flexRadioDefault2" value=0 checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Admin
+                                    </label>
+                                </div>
+                            </div>
+                    
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="remark" class="col-md-4 col-form-label text-md-end">Remark</label>
+
+                            <div class="col-md-6">
+                                <input id="remark" type="text" class="form-control @error('remark') is-invalid @enderror" name="remark">
+
+                                @error('remark')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
