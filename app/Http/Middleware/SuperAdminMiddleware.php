@@ -36,7 +36,7 @@ class SuperAdminMiddleware
 
     public function handle(Request $request, Closure $next)
     {
-        if ($this->auth->getUser()->id !== 1) {
+        if ($this->auth->getUser()->is_admin !== 1) {
             abort(403, 'Unauthorized action.');
         }
 
