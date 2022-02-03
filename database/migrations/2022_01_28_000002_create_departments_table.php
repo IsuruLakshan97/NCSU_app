@@ -15,7 +15,7 @@ class CreateDepartmentsTable extends Migration
     {
         if (!Schema::hasTable('departments')) {
             Schema::create('departments', function (Blueprint $table) {
-                $table->integer('id')->primary();
+                $table->id();
                 $table->string("name", 100)->unique();
                 $table->integer('faculty_id');
                 $table->foreign('faculty_id')->references('id')->on('faculties');
