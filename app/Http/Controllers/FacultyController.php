@@ -18,6 +18,7 @@ class FacultyController extends Controller
         // dd(request()->all());
 
         $data = request()->validate([
+            'id' => ['required', 'int', 'unique:faculties'],
             'name' => ['required', 'string', 'max:255', 'unique:faculties'],
         ]);
 
