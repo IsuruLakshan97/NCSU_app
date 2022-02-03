@@ -6,7 +6,7 @@
 
         @section('navbar')
         <a class="dropdown-item" href="/profile/create">Add new user</a>
-        
+        <a class="dropdown-item" href="/faculty/create">Add new faculty</a>
         @endsection
 
         <table class="table table-hover">

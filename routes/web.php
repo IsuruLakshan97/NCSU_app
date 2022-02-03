@@ -21,6 +21,9 @@ Auth::routes();
 // Auth::routes(['register' => false]);
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
+Route::get('/catalogue', [App\Http\Controllers\catalogueController::class, 'index'])->name('catalogue.index');
+
+Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
     // your routes
@@ -29,5 +32,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/profile/create', [App\Http\Controllers\ProfileController::class, 'create']);
 
     Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'delete'])->name('profile.destroy');
+
+    Route::post('/faculty', [App\Http\Controllers\FacultyController::class, 'store'])->name('faculty.store');
+
+    Route::get('/faculty/create', [App\Http\Controllers\FacultyController::class, 'create']);
 });
 

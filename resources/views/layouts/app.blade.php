@@ -42,6 +42,18 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
+                                    <a class="nav-link" href="#" style="color: white;">Home</a>
+                                </li>
+                            
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" style="color: white;">People</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/forum/create" style="color: white;">Forum</a>
+                                </li>
+                                
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}" style="color: white;">{{ __('Login') }}</a>
                                 </li>
                             @endif
