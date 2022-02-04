@@ -32,11 +32,11 @@
     </div>
 
     <div class="col-md-6">
-      <label for="full_name" class="form-label">Full name</label>
+      <label for="fullname" class="form-label">Full name</label>
 
-      <input id="full_name" type="text" class="form-control @error('full_name') is-invalid @enderror" placeholder="Alex Steven Cooper" name="full_name" value="{{ old('full_name') }}" required autocomplete="full_name" autofocus>
+      <input id="fullname" type="text" class="form-control @error('fullname') is-invalid @enderror" placeholder="Alex Steven Cooper" name="fullname" value="{{ old('fullname') }}" required autocomplete="fullname" autofocus>
 
-      @error('full_name')
+      @error('fullname')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
@@ -84,11 +84,11 @@
     </div>
 
     <div class="col-12">
-      <label for="birthday" class="form-label">Birthday</label>
+      <label for="date" class="form-label">Birthday</label>
       
-      <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" placeholder="04/01/1998" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
+      <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" placeholder="04/01/1998" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
 
-      @error('birthday')
+      @error('date')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
@@ -129,11 +129,11 @@
     </div>
 
     <div class="col-md-2">
-      <label for="reg_no" class="form-label">Reg no.</label>
+      <label for="regNo" class="form-label">Reg no.</label>
       
-      <input id="reg_no" type="text" class="form-control @error('reg_no') is-invalid @enderror" placeholder="E/66/566" name="reg_no" value="{{ old('reg_no') }}" required autocomplete="reg_no" autofocus>
+      <input id="regNo" type="text" class="form-control @error('regNo') is-invalid @enderror" placeholder="E/66/566" name="regNo" value="{{ old('regNo') }}" required autocomplete="regNo" autofocus>
 
-      @error('reg_no')
+      @error('regNo')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
@@ -142,7 +142,7 @@
 
     <div class="mb-3">
       <label for="formFile" class="form-label">Insert a Profile Image</label>
-      <input class="form-control" type="file" id="formFile">  
+      <input class="form-control" type="file" id="formFile" name="image">  
     </div>
 
     <div class="col-12">
