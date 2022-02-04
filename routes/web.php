@@ -21,10 +21,14 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
+
 Route::get('/catalogue', [App\Http\Controllers\catalogueController::class, 'index'])->name('catalogue.index');
 
 Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
 
+Route::post('/forum', [App\Http\Controllers\ForumController::class, 'store'])->name('forum.store');
+
+// Route that can be only accesed by the super admin
 Route::group(['middleware' => ['auth', 'admin']], function() {
     // your routes
     Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.store');
