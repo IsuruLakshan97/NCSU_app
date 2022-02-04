@@ -28,7 +28,7 @@ class ForumController extends Controller
             'address' => ['required','string', 'max:100'],
             'city' => ['required','string', 'max:100'],
             'date' => ['required','string'],
-            'regNo' => ['required','string', 'max:10'],
+            'regNo' => ['required','string', 'max:10','unique:people'],
             'image' => ['required','image'],
             'faculty_id' => ['required','int','exists:faculties,id'],
             'department_id' => ['required','int', 'exists:departments,id'],

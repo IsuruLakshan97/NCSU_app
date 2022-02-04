@@ -23,7 +23,7 @@ class CreatePeopleTable extends Migration
                 $table->string('address', 100);
                 $table->string('city', 100);
                 $table->string('date', 20);
-                $table->string('regNo', 10);
+                $table->string('regNo', 10)->unique();
                 $table->string('image', 200);
                 $table->integer('faculty_id');
                 $table->unsignedBigInteger('department_id');
