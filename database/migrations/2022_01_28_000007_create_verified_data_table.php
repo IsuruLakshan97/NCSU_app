@@ -13,18 +13,26 @@ class CreateVerifiedDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('verified_data', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('username')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->integer('faculty_id');
-            $table->rememberToken();
-            $table->index('faculty_id');
-        });
+        if (!Schema::hasTable('verified_data')) {
+            Schema::create('verified_data', function (Blueprint $table) {
+                $table->id();
+                $table->string('fname', 20);
+                $table->string('lname', 20);
+                $table->string('fullname', 100);
+                $table->string('initial', 50);
+                $table->string('address', 100);
+                $table->string('city', 100);
+                $table->string('date', 20);
+                $table->string('regNo', 10);
+                $table->string('image', 200);
+                $table->integer('faculty_id');
+                $table->unsignedBigInteger('department_id');
+                $table->timestamps();
+
+                $table->foreign('department_id')->references('id')->on('departments');
+                $table->foreign('faculty_id')->references('id')->on('faculties');
+            });
+        }
     }
 
     /**
