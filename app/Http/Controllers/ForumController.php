@@ -35,8 +35,21 @@ class ForumController extends Controller
         ]);
 
         // dd($data);
-
-        \App\Models\Person::create($data);
+        $imagePath = request('image')->store('uploads','public');
+       
+        \App\Models\Person::create([
+            'fname' => $data['fname'],
+            'lname' => $data['lname'],
+            'fullname' => $data['fullname'], 
+            'initial' => $data['initial'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'date' => $data['date'],
+            'regNo' => $data['regNo'],
+            'image' => $imagePath,
+            'faculty_id' => $data['faculty_id'],
+            'department_id' => $data['department_id'],
+        ]);
 
         return redirect('/forum/create');
     }
