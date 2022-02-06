@@ -5,15 +5,14 @@
 
 <div class="container vh-75">
 <main class="container">
-   <div class="bg-secondary p-3 pb-1 rounded">
-       <h3 class="text-white text-left pb-1">Data Catalogue</h3>
-       <h1 class="text-white text-center">{{$batch}} Batch</h1>
+   <div class="p-3 pb-1 rounded">
+       <h3 class="text-left pb-1">Data Catalogue</h3>
+       <h1 class="text-center font-weight-bold">{{$batch}} Batch</h1>
        <nav aria-label="breadcrumb">
            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="/" class="link-light">Home</a></li>
-               <li class="breadcrumb-item"><a href="/catalogue" class="link-light">Data Catalogue</a></li>
-               <li class="breadcrumb-item" aria-current="page"><a href="/catalogue/{{$facultyCode}}" class="link-light">{{$facultyCode}}</a></li>
-               <li class="breadcrumb-item">{{$batch}} Batch</li>
+               <li class="breadcrumb-item"><a href="/catalogue">Data Catalogue</a></li>
+               <li class="breadcrumb-item"><a href="/catalogue/{{$facultyCode}}">{{$facultyCode}}</a></li>
+               <li class="breadcrumb-item active" aria-current="page">{{$batch}} Batch</li>
            </ol>
        </nav>
    </div>
@@ -30,9 +29,9 @@
                <h6 class="card-title">
                     {{$data->fullname}}
                    </h6>
-               <p class="card-text">{{$data->regname}}</p>
+               <p class="card-text">{{$data->regNo}}</p>
                <div class="d-flex flex-row justify-content-center mt-auto">
-                    <a class="btn btn-outline-primary w-100" href="/students/e16/012/">View</a>
+                    <a class="btn btn-outline-primary w-100" href="/catalogue/{{$facultyCode}}/{{$batch}}/{{Str::afterLast($data->regNo,'/')}}">View</a>
                </div>
            </div>
        </div>

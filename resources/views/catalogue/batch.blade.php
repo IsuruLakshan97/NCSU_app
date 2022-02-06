@@ -4,15 +4,13 @@
 
     <div class="container vh-75">
     <main class="container">
-    <div class="bg-secondary p-3 pb-1 rounded">
-        <h3 class="text-white text-left pb-1">Data Catalogue</h3>
-        <h1 class="text-white text-center">{{$facultyname}}</h1>
+    <div class="p-3 pb-1 rounded">
+        <h3 class="text-left pb-1">Data Catalogue</h3>
+        <h1 class="text-center font-weight-bold">{{$facultyname}}</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active text-white" aria-current="page"> <a href="/" class="link-light"> Home</a>
-                </li>
-                <li class="breadcrumb-item active text-white" aria-current="page"><a href="/catalogue" class="link-light">Data Catalogue</a></li>
-                <li class="breadcrumb-item active text-white" aria-current="page">{{$facultyCode}}</li>
+                <li class="breadcrumb-item"><a href="/catalogue">Data Catalogue</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$facultyCode}}</li>
             </ol>
         </nav>
     </div>
