@@ -13,8 +13,9 @@ class ForumController extends Controller
 
         $faculties = $faculty::all();
         $departments = $department::all();
+        $batches = \App\Models\Batch::all();
 
-        return view('forum.create')->with('fac', $faculties)->with('dep', $departments);
+        return view('forum.create')->with('fac', $faculties)->with('dep', $departments)->with('batch',$batches);
     }
 
     public function store(){
@@ -31,6 +32,7 @@ class ForumController extends Controller
             'regNo' => ['required','string', 'max:10','unique:people'],
             'image' => ['required','image'],
             'faculty_id' => ['required','int','exists:faculties,id'],
+            'batch_id' => ['required','int','exists:batches,id'],
             'department_id' => ['required','int', 'exists:departments,id'],
         ]);
 
@@ -48,6 +50,7 @@ class ForumController extends Controller
             'regNo' => $data['regNo'],
             'image' => $imagePath,
             'faculty_id' => $data['faculty_id'],
+            'batch_id' => $data['batch_id'],
             'department_id' => $data['department_id'],
         ]);
 

@@ -83,12 +83,29 @@
 
     </div>
 
-    <div class="col-12">
+    <div class="col-md-6">
       <label for="date" class="form-label">Birthday</label>
       
       <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" placeholder="04/01/1998" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
 
       @error('date')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror
+
+    </div>
+
+    <div class="col-md-6">
+      <label for="batch_id" class="form-label">Batch</label>
+
+      <select id="batch_id" type="batch_id" class="form-select @error('batch_id') is-invalid @enderror" name="batch_id" value="{{ old('batch_id') }}" required autocomplete="batch_id">
+        @foreach($batch as $data)
+        <option value="{{$data->id}}">{{$data->batch}}</option>
+        @endforeach
+      </select>
+
+      @error('batch_id')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
@@ -150,24 +167,22 @@
     </div>
 
 </div>
+@endsection
 
-<div class="block">
-<div class="container" >
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+@section('footer')
+  <div class="block">
+  <div class="container" >
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
 
-    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-    </a>
-
-    <!-- <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Forum</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">People</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-    </ul> -->
-  </footer>
-</div>
-</div>
+      <!-- <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Forum</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">People</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      </ul> -->
+    </footer>
+  </div>
+  </div>
 @endsection
