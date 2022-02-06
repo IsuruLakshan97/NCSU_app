@@ -53,9 +53,22 @@ class DatabaseSeeder extends Seeder
             ['name'=>'lucifer','username'=>'lucifer','email'=>'lucifer@lucifer.com', 'password'=>'$2a$12$05NtOHr3R1lzeMptuR0b0.vssg.nnt0S.UzX8GwuRSaqEeWS.CIRS','remark'=>'admin user','active'=>1,'is_admin'=>0, 'faculty_id'=> 1],
         ];
 
-        // If the table faculties has no data, seed them with dummy data
+        // If the table users has no data, seed them with dummy data
         if (DB::table('users')->count() == 0) {
             DB::table('users')->insert($user_list);
+        }
+
+        $batch_list = [
+            ['id'=>16, 'batch'=>'16 batch'],
+            ['id'=>17, 'batch'=>'17 batch'],
+            ['id'=>18, 'batch'=>'18 batch'],
+            ['id'=>19, 'batch'=>'19 batch'],
+            ['id'=>20, 'batch'=>'20 batch'],
+        ];
+
+        //if the table batches has no data, seed them with dummy data
+        if (DB::table('batches')->count() == 0) {
+            DB::table('batches')->insert($batch_list);
         }
     }
 }
