@@ -17,15 +17,9 @@
     </main>
     <div class="container py-4 px-lg-5">
     <div class="row justify-content-center">
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Agriculture</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Arts</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Dental Sciences</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Medicine</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Engineering</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Allied Health Sciences</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Science</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Management</a>
-            <a class="btn btn-outline-primary w-25  m-2" href="#">Faculty of Engineering</a>
+        @foreach($fac as $data)
+            <a class="btn btn-outline-primary w-25  m-2" href="/catalogue/{{$data->facultyCode}}">{{$data->name}}</a>
+        @endforeach
         </div>
     </div>
     </div>

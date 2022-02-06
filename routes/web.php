@@ -26,6 +26,9 @@ Route::get('/person/{batch}', [App\Http\Controllers\PersonController::class, 'in
 
 Route::get('/catalogue', [App\Http\Controllers\catalogueController::class, 'index'])->name('catalogue.index');
 
+Route::get('/catalogue/{facCode}', [App\Http\Controllers\catalogueController::class, 'getBatches'])->name('catalogue.getBatches');
+Route::get('/catalogue/{facCode}/{batch}', [App\Http\Controllers\catalogueController::class, 'getStudents'])->name('catalogue.getStudents');
+
 Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
 
 Route::post('/forum', [App\Http\Controllers\ForumController::class, 'store'])->name('forum.store');
