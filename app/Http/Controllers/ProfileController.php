@@ -22,10 +22,14 @@ class ProfileController extends Controller
 
         // $users = DB::table('users')->get();
         $users = User::all();
-        $faculty = new \App\Models\faculty;
-        $department = new \App\Models\Department;
 
-        return view('home')->with('name',$users)->with('faculty', $faculty)->with('user',$user);
+        $batch = \App\Models\Batch::all();
+
+        $faculty = \App\Models\faculty::all();
+        
+        $department = \App\Models\Department::all();
+
+        return view('home')->with('name',$users)->with('faculty', $faculty)->with('user',$user)->with('batch',$batch);
         
     }
 
