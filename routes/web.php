@@ -20,7 +20,9 @@ Route::get('/', function () {
 // Auth::routes();
 Auth::routes(['register' => false]);
 
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->middleware('auth');
+
+Route::get('/person/{batch}', [App\Http\Controllers\PersonController::class, 'index'])->middleware('auth');
 
 Route::get('/catalogue', [App\Http\Controllers\catalogueController::class, 'index'])->name('catalogue.index');
 
