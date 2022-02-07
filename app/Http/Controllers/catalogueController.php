@@ -63,4 +63,20 @@ class catalogueController extends Controller
         return view('catalogue.details')->with('details', $studentDetails)->with('facName', $fac_name)->with('depName', $dep_name)->with('facultyCode', $facCode)->with('batch', $batch);
         
     }
+
+    public function getProfile($username)
+    {
+
+        // dd($username);
+        $studentDetails = verifiedData::where('username', $username)->firstorFail();
+        
+        $dep_name = $studentDetails->department->name;
+        $fac_name = $studentDetails->faculty->name;
+        $facCode = $studentDetails->faculty->facultyCode;
+        $batch = $studentDetails->batch->id;
+
+        // dd($studentDetails);
+        return view('catalogue.details')->with('details', $studentDetails)->with('facName', $fac_name)->with('depName', $dep_name)->with('facultyCode', $facCode)->with('batch', $batch);
+        
+    }
 }
