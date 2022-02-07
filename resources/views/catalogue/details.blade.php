@@ -19,7 +19,7 @@
        </nav>
    </div>
 </main>
-  <form class="row g-3 pt-4" method="POST" action="/forum" enctype="multipart/form-data">
+  <form class="row g-3 pt-4">
 
     <div class="mb-3">
       <img src="/storage/{{$details->image}}" style="border-radius: 10%; height:300px; object-fit: cover;" class="rounded mx-auto d-block" alt="">  
