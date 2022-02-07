@@ -12,6 +12,7 @@ class Person extends Model
     protected $fillable = [
         'fname',
         'lname',
+        'username',
         'fullname',
         'initial',
         'address',
