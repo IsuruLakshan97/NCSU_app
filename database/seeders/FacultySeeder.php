@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Faculty;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -23,12 +24,14 @@ class FacultySeeder extends Seeder
             ['id'=> 6, 'name'=>'Faculty of Science', 'facultyCode'=>'FOS'],
             ['id'=> 7, 'name'=>'Faculty of Veterinary Medicine and Animal Science', 'facultyCode'=>'FOV'],
             ['id'=> 8, 'name'=>'Faculty of Allied Health Sciences', 'facultyCode'=>'FOAHS'],
-            ['id'=> 9, 'name'=>'Faculty of Management', 'facultyCode'=>'FOM']
+            ['id'=> 9, 'name'=>'Faculty of Management', 'facultyCode'=>'FOMNG']
         ];
 
         // If the table faculties has no data, seed them with dummy data
         if (DB::table('faculties')->count() == 0) {
-            DB::table('faculties')->insert($faculty_list);
+            foreach ($faculty_list as $faculty) {
+                Faculty::create($faculty);
+            }  
         }
     }
 }
