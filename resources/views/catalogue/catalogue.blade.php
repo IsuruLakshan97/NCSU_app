@@ -4,15 +4,15 @@
 
     <div class="container vh-75">
     <main class="container">
-    <div class="bg-secondary p-3 pb-1 rounded">
-        <h1 class="text-white text-center">Data Catalogue</h1>
-        <nav aria-label="breadcrumb">
+    <div class="p-3 pb-1 rounded">
+        <h1 class="text-center font-weight-bold">Data Catalogue</h1>
+        <!-- <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active text-white" aria-current="page"> <a href="/" class="link-light"> Home</a>
+                <li class="breadcrumb-item"> <a href="/" class="link-light"> Home</a>
                 </li>
-                <li class="breadcrumb-item active text-white" aria-current="page">Data Catalogue</li>
+                <li class="breadcrumb-item active" aria-current="page">Data Catalogue</li>
             </ol>
-        </nav>
+        </nav> -->
     </div>
     </main>
     <div class="container py-4 px-lg-5">

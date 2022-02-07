@@ -27,10 +27,10 @@ Route::get('/person/{batch}', [App\Http\Controllers\PersonController::class, 'in
 Route::get('/person/{batch}/{person}', [App\Http\Controllers\PersonController::class, 'profile'])->middleware('auth');
 
 Route::get('/catalogue', [App\Http\Controllers\catalogueController::class, 'index'])->name('catalogue.index');
-
 Route::get('/catalogue/{facCode}', [App\Http\Controllers\catalogueController::class, 'getBatches'])->name('catalogue.getBatches');
 
 Route::get('/catalogue/{facCode}/{batch}', [App\Http\Controllers\catalogueController::class, 'getStudents'])->name('catalogue.getStudents');
+Route::get('/catalogue/{facCode}/{batch}/{regno}', [App\Http\Controllers\catalogueController::class, 'getDetails'])->name('catalogue.getDetails');
 
 Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
 
