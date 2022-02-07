@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             FacultySeeder::class,
             DepartmentSeeder::class,
             UserSeeder::class,
-            BatchSeeder::class
+            BatchSeeder::class,
+            PersonSeeder::class
         ]);
 
         $this->command->info("Database seeded.");
