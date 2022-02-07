@@ -29,6 +29,6 @@ class PersonController extends Controller
         // dd($person->id);
         $user = auth()->user();
 
-        return view('person.verify')->with('person',$person)->with('user',$user);
+        return view('person.profile')->with('person',$person)->with('user',$user);
     }
 }
