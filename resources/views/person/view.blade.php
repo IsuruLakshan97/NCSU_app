@@ -22,7 +22,7 @@
                 </h6>
                 <p class="card-text">{{$data->regNo}}</p>
                 <div class="d-flex flex-row justify-content-center mt-auto">
-                    <a class="btn btn-outline-primary w-100" href="/students/e16/012/">View</a>
+                    <a class="btn btn-outline-primary w-100" href="/person/{{$data->batch_id}}/{{$data->id}}">View</a>
                 </div>
             </div>
         </div>
