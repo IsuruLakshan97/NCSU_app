@@ -31,11 +31,12 @@ Route::get('/person/{batch}/{person}/verify', [App\Http\Controllers\PersonContro
 Route::get('/catalogue', [App\Http\Controllers\catalogueController::class, 'index'])->name('catalogue.index');
 Route::get('/catalogue/{facCode}', [App\Http\Controllers\catalogueController::class, 'getBatches'])->name('catalogue.getBatches');
 Route::get('/catalogue/{facCode}/{batch}', [App\Http\Controllers\catalogueController::class, 'getStudents'])->name('catalogue.getStudents');
-Route::get('/catalogue/{facCode}/{batch}/{regno}', [App\Http\Controllers\catalogueController::class, 'getDetails'])->name('catalogue.getDetails');
 
 Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
 
 Route::post('/forum', [App\Http\Controllers\ForumController::class, 'store'])->name('forum.store');
+
+Route::get('/uop/{username}', [App\Http\Controllers\catalogueController::class, 'getProfile']);
 
 // Route that can be only accesed by the super admin
 Route::group(['middleware' => ['auth', 'admin']], function() {
