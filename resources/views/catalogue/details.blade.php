@@ -5,7 +5,11 @@
 <main class="container">
    <div class="p-3 pb-1 rounded">
        <h3 class="text-left pb-1">Verified Details</h3>
-       <h1 class="text-center font-weight-bold">{{$details->fullname}}</h1>
+       @if ($details === null)
+        <h1 class="text-center font-weight-bold">Student Not Verified Yet</h1>
+       @else
+        <h1 class="text-center font-weight-bold">{{$details->fullname}}</h1>
+        @endif
        <nav aria-label="breadcrumb">
            <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="/catalogue" >Data Catalogue</a></li>
