@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->git
+        </div> -->
         <main class="container">
             <h1>{{$user->faculty->name}}</h1>
             <nav aria-label="breadcrumb">
