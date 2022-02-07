@@ -6,13 +6,6 @@
     <main class="container">
     <div class="p-3 pb-1 rounded">
         <h1 class="text-center font-weight-bold">Data Catalogue</h1>
-        <!-- <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"> <a href="/" class="link-light"> Home</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Data Catalogue</li>
-            </ol>
-        </nav> -->
     </div>
     </main>
     <div class="container py-4 px-lg-5">
@@ -23,12 +16,17 @@
         </div>
     </div>
     </div>
-    <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"><p class="col-md-6 mb-1 text-muted" style="font-size:80%;">&copy; COPYRIGHT 2022 DEPARTMENT OF COMPUTER ENGINEERING, UOP<br>Last Update : 31/01/2022
-        </p>
-        <p class="text-xl-left text-muted" style="font-size:80%;"><a href="/documentation/">Documentation</a>
-        </p>
-    </footer>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="/forum/create" class="nav-link px-2 text-muted">Forum</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">People</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            </ul>
+
+        </footer>
     </div>
 
 @endsection
