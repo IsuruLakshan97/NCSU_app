@@ -31,7 +31,7 @@
            </div>
            <div class="mt-3">
                <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">Verify</a>
+                <a href="{{URL::current()}}/verify" class="btn btn-primary" type="button">Verify</a>
                </div>
            </div>
        </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\Person;
 use \App\Models\Batch;
+use \App\Models\verifiedData;
 
 class PersonController extends Controller
 {
@@ -30,5 +31,16 @@ class PersonController extends Controller
         $user = auth()->user();
 
         return view('person.profile')->with('person',$person)->with('user',$user);
+    }
+
+    public function verify(Batch $batch, Person $person)
+    {
+        $data = $person->replicate();
+        $data = $data->toArray();
+        verifiedData::firstOrCreate($data);
+
+        $person->delete();
+
+        return redirect()->route('person.index',['batch'=>$batch->id])->with('message', 'Profile verified Succesfully!!');;
     }
 }

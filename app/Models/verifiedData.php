@@ -19,6 +19,7 @@ class verifiedData extends Model
         'regNo',
         'image',
         'faculty_id',
+        'batch_id',
         'department_id',
     ];
 }
