@@ -52,10 +52,9 @@
                    </div>
                     <img src="/images/homepage/student.jpg" class="card-img-top p-3" alt="Students">
                    <div class="card-body">
-                        <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/catalogue/{{$facultyCode}}/18">E18 Batch</a>
-                        <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/catalogue/{{$facultyCode}}/17">E17 Batch</a>
-                        <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/catalogue/{{$facultyCode}}/16">E16 Batch</a>
-                        <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/catalogue/{{$facultyCode}}/15">E15 Batch</a>
+                       @foreach($batches as $data)
+                        <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/catalogue/{{$facultyCode}}/{{$data->id}}">{{$data->id}} Batch</a>
+                       @endforeach
                     </div>
                </div>
                <div class="card text-center p-2 cardSpacingHome border-primary" style="width:18rem;">
