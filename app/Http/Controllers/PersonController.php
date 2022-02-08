@@ -21,7 +21,7 @@ class PersonController extends Controller
     {
         $user = auth()->user();
 
-        $people = Person::where(['batch_id'=>$batch->id,'faculty_id'=>$user->faculty_id])->orderBy('regNo', 'desc')->get();
+        $people = Person::where(['batch_id'=>$batch->id,'faculty_id'=>$user->faculty_id])->orderBy('regNo', 'asc')->get();
                 
         return view('person.view')->with('people',$people)->with('user',$user);
     }
