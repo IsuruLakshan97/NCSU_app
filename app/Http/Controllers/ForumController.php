@@ -24,6 +24,7 @@ class ForumController extends Controller
         $data = request()->validate([
             'fname' => ['required','string', 'max:20'],
             'lname' => ['required','string', 'max:20'],
+            'username' => ['required','string', 'max:20', 'unique:people', 'unique:verified_data'],
             'fullname' => ['required','string', 'max:100'],
             'initial' => ['required','string', 'max:50'],
             'address' => ['required','string', 'max:100'],
@@ -42,6 +43,7 @@ class ForumController extends Controller
         \App\Models\Person::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
+            'username' => $data['username'],
             'fullname' => $data['fullname'], 
             'initial' => $data['initial'],
             'address' => $data['address'],

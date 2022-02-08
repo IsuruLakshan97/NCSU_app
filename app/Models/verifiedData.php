@@ -11,6 +11,7 @@ class verifiedData extends Model
     protected $fillable = [
         'fname',
         'lname',
+        'username',
         'fullname',
         'initial',
         'address',
@@ -19,6 +20,19 @@ class verifiedData extends Model
         'regNo',
         'image',
         'faculty_id',
+        'batch_id',
         'department_id',
     ];
+
+    public function faculty(){
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+
+    public function batch(){
+        return $this->belongsTo(Batch::class);
+    }
 }
