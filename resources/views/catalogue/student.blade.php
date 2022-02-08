@@ -40,15 +40,19 @@
     
 
 
-   </div>
+@section('footer')
+<div class="block  mt-auto">
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto">
+            <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <p class="col-md-4 mb-0 text-muted">All rights reserved</p>
+            </ul>
+
+        </footer>
+    </div>
 </div>
-   </div>
-   <div class="container">
-   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"><p class="col-md-6 mb-1 text-muted" style="font-size:80%;">&copy; COPYRIGHT 2022 DEPARTMENT OF COMPUTER ENGINEERING, UOP<br>Last Update : 29/01/2022
-       </p>
-       <p class="text-xl-left text-muted" style="font-size:80%;"><a href="/documentation/">Documentation</a>
-       </p>
-   </footer>
-</div>
+@endsection
 
 @endsection
