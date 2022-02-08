@@ -43,6 +43,7 @@ class catalogueController extends Controller
         return view('catalogue.student')->with('facultyCode', $facCode)->with('facultyID', $fac_id)->with('people', $students)->with('batch', $batch);
         
     }
+    
     public function getDetails($facCode, $batch, $regno)
     {
         //dd($fac);
