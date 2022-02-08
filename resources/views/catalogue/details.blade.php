@@ -53,18 +53,22 @@
 
     </div>
     
-    <div class="col-12">
-      <label for="address" class="form-label">Address</label>
-      
-      <input class="form-control" id="disabledInput" type="text" placeholder="{{$details->address}}" disabled>
-
-    </div>
-
-    <div class="col-12">
+    <div class="col-md-6">
       <label for="city" class="form-label">City</label>
       
       <input class="form-control" id="disabledInput" type="text" placeholder="{{$details->city}}" disabled>
+    </div>
 
+    <div class="col-md-6">
+      <label for="username" class="form-label">Username</label>
+      
+      <input class="form-control" id="disabledInput" type="text" placeholder="{{$details->username}}" disabled>
+    </div>
+
+    <div class="col-12">
+      <label for="address" class="form-label">Address</label>
+      
+    <input class="form-control" id="disabledInput" type="text" placeholder="{{$details->address}}" disabled>
     </div>
 
     <div class="col-12">
@@ -91,18 +95,23 @@
       
       <input class="form-control" id="disabledInput" type="text" placeholder="{{$details->regNo}}" disabled>
     </div>
+    <img src="/img/check.svg" alt="verified" width="32" height="32">
+    <p class="text-center">Your data is verified by a faculty official on {{$details->updated_at}}</p>
 
 </div>
 
-<div class="block">
-<div class="container" >
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+@section('footer')
+<div class="block  mt-auto">
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto">
+            <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
 
-    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-    </a>
-  </footer>
+            <ul class="nav col-md-4 justify-content-end">
+                <p class="col-md-4 mb-0 text-muted">All rights reserved</p>
+            </ul>
+
+        </footer>
+    </div>
 </div>
-</div>
+@endsection
 @endsection

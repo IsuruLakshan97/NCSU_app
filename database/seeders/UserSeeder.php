@@ -61,6 +61,17 @@ class UserSeeder extends Seeder
                 'is_admin'=>0,
                 
             ],
+            [
+                'faculty_id'=> 4,
+                'name'=>'efacadmin',
+                'username'=>'efac',
+                'email'=>'efac@efac.com', 
+                'password'=>Hash::make('admin12345'),
+                'remark'=>'admin user for efac',
+                'active'=>1,
+                'is_admin'=>0,
+                
+            ],
         ];
 
         // If the table users has no data, seed them with dummy data

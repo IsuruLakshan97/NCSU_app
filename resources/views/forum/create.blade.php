@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session()->has('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session()->get('message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
 <div class="container">
   <form class="row g-3" method="POST" action="/forum" enctype="multipart/form-data">
     @csrf
@@ -172,7 +179,7 @@
 
     <div class="mb-3">
       <label for="formFile" class="form-label">Insert a Profile Image</label>
-      <input class="form-control" type="file" id="formFile" name="image">  
+      <input class="form-control" type="file" id="formFile" name="image" required>  
     </div>
 
     <div class="col-12">
