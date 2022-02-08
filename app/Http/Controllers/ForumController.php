@@ -54,6 +54,6 @@ class ForumController extends Controller
             'department_id' => $data['department_id'],
         ]);
 
-        return redirect('/forum/create');
+        return redirect('/forum/create')->with('message', 'Forum data entered Succesfully!!');
     }
 }

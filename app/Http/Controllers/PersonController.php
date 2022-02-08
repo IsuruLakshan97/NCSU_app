@@ -41,6 +41,6 @@ class PersonController extends Controller
 
         $person->delete();
 
-        return redirect()->route('person.index',['batch'=>$batch->id])->with('message', 'Profile verified Succesfully!!');;
+        return redirect()->route('person.index',['batch'=>$batch->id])->with('message', 'Profile verified Succesfully!!');
     }
 }
