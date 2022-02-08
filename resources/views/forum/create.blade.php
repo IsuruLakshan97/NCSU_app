@@ -64,12 +64,25 @@
 
     </div>
     
-    <div class="col-12">
-      <label for="address" class="form-label">Address</label>
+    <div class="col-md-6">
+      <label for="city" class="form-label">City</label>
       
-      <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" placeholder="1234 Main St, Sanfrancisco, California" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+      <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="California" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
 
-      @error('address')
+      @error('city')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror
+
+    </div>
+
+    <div class="col-md-6">
+      <label for="username" class="form-label">Username</label>
+      
+      <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Cooper360" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+
+      @error('username')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
@@ -78,11 +91,11 @@
     </div>
 
     <div class="col-12">
-      <label for="city" class="form-label">City</label>
+      <label for="address" class="form-label">Address</label>
       
-      <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" placeholder="California" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+      <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" placeholder="1234 Main St, Sanfrancisco, California" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
 
-      @error('city')
+      @error('address')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>

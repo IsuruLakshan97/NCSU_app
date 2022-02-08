@@ -16,15 +16,15 @@ class FacultySeeder extends Seeder
     public function run()
     {
         $faculty_list = [
-            ['id'=> 1, 'name'=>'Faculty of Agriculture', 'facultyCode'=>'FOAG'],
-            ['id'=> 2, 'name'=>'Faculty of Arts', 'facultyCode'=>'FOA'],
-            ['id'=> 3, 'name'=>'Faculty of Dental Sciences', 'facultyCode'=>'FOD'],
-            ['id'=> 4, 'name'=>'Faculty of Engineering', 'facultyCode'=>'FOE'],
-            ['id'=> 5, 'name'=>'Faculty of Medicine', 'facultyCode'=>'FOM'],
-            ['id'=> 6, 'name'=>'Faculty of Science', 'facultyCode'=>'FOS'],
-            ['id'=> 7, 'name'=>'Faculty of Veterinary Medicine and Animal Science', 'facultyCode'=>'FOV'],
-            ['id'=> 8, 'name'=>'Faculty of Allied Health Sciences', 'facultyCode'=>'FOAHS'],
-            ['id'=> 9, 'name'=>'Faculty of Management', 'facultyCode'=>'FOMNG']
+            ['id'=> 1, 'name'=>'Faculty of Agriculture', 'facultyCode'=>'AG'],
+            ['id'=> 2, 'name'=>'Faculty of Arts', 'facultyCode'=>'A'],
+            ['id'=> 3, 'name'=>'Faculty of Dental Sciences', 'facultyCode'=>'D'],
+            ['id'=> 4, 'name'=>'Faculty of Engineering', 'facultyCode'=>'E'],
+            ['id'=> 5, 'name'=>'Faculty of Medicine', 'facultyCode'=>'M'],
+            ['id'=> 6, 'name'=>'Faculty of Science', 'facultyCode'=>'S'],
+            ['id'=> 7, 'name'=>'Faculty of Veterinary Medicine and Animal Science', 'facultyCode'=>'V'],
+            ['id'=> 8, 'name'=>'Faculty of Allied Health Sciences', 'facultyCode'=>'AH'],
+            ['id'=> 9, 'name'=>'Faculty of Management', 'facultyCode'=>'MN']
         ];
 
         // If the table faculties has no data, seed them with dummy data

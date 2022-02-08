@@ -31,7 +31,7 @@
                    </h6>
                <p class="card-text">{{$data->regNo}}</p>
                <div class="d-flex flex-row justify-content-center mt-auto">
-                    <a class="btn btn-outline-primary w-100" href="/catalogue/{{$facultyCode}}/{{$batch}}/{{Str::afterLast($data->regNo,'/')}}">View</a>
+                    <a class="btn btn-outline-primary w-100" href="/uop/{{Str::afterLast($data->username,'/')}}">View</a>
                </div>
            </div>
        </div>
