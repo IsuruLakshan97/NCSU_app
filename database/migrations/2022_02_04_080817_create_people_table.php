@@ -20,12 +20,12 @@ class CreatePeopleTable extends Migration
                 $table->string('lname', 20);
                 $table->string('username', 20)->unique();
                 $table->string('fullname', 100);
-                $table->string('initial', 50);
-                $table->string('address', 100);
-                $table->string('city', 100);
+                $table->string('initial', 30);
+                $table->string('address', 200);
+                $table->string('city', 80);
                 $table->string('date', 20);
                 $table->string('regNo', 10)->unique();
-                $table->string('image', 200);
+                $table->string('image', 300);
                 $table->integer('faculty_id');
                 $table->integer('batch_id');
                 $table->unsignedBigInteger('department_id');

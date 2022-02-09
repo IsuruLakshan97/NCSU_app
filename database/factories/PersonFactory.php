@@ -17,10 +17,10 @@ class PersonFactory extends Factory
     public function definition()
     {   
         $Gender = array_rand(['male', 'female']);
-        $firstName = $this->faker->firstName($gender = $Gender);
-        $middleName = $this->faker->firstName($gender = $Gender);
-        $lastName = $this->faker->lastName();
-        $city = $this->faker->city();
+        $firstName = $this->faker->firstName($gender = $Gender, $maxNbChars = 20);
+        $middleName = $this->faker->firstName($gender = $Gender, $maxNbChars = 20);
+        $lastName = $this->faker->lastName($maxNbChars = 20);
+        $city = $this->faker->city($maxNbChars = 80);
 
         // Get random faculty id and batch id from the database
         $fac = Faculty::inRandomOrder()->first();
@@ -31,7 +31,7 @@ class PersonFactory extends Factory
 
             'lname' => $lastName ,
 
-            'username' => $this->faker->unique()->userName(),
+            'username' => $this->faker->unique()->userName($maxNbChars = 20),
 
             'fullname' => $firstName.' '.$middleName.' '.$lastName,
 
@@ -41,7 +41,7 @@ class PersonFactory extends Factory
 
             'city' => $city,
 
-            'date' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
+            'date' => $this->faker->date($format = 'Y-m-d', $maxNbChars = 'now'),
 
             'regNo' => $fac->facultyCode.'/'.$batch.'/'.$this->faker->unique()->randomNumber($nbDigits = 3, $strict = true),
 

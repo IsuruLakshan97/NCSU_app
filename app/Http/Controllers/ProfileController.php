@@ -23,11 +23,15 @@ class ProfileController extends Controller
 
         $current_date_time = Carbon::now()->toDateTimeString();
 
-        DB::table('users')->upsert([
-        ['id' => $user->id, 'faculty_id' => $user->faculty_id, 'name' => $user->name, 'username' => $user->username, 'email' => $user->email, 
-        'password' => $user->password, 'remark' => $user->remark, 'active' => $user->active, 'is_admin' => $user->is_admin, 
-        'email_verified_at' => $user->email_verified_at, 'remember_token' => $user->remember_token, 'created_at' => $user->created_at, 'updated_at' => $user->updated_at, 
-        'lastOnline' => $current_date_time]], ['id', 'username','email'], ['lastOnline']);
+        // DB::table('users')->upsert([
+        // ['id' => $user->id, 'faculty_id' => $user->faculty_id, 'name' => $user->name, 'username' => $user->username, 'email' => $user->email, 
+        // 'password' => $user->password, 'remark' => $user->remark, 'active' => $user->active, 'is_admin' => $user->is_admin, 
+        // 'email_verified_at' => $user->email_verified_at, 'remember_token' => $user->remember_token, 'created_at' => $user->created_at, 'updated_at' => $user->updated_at, 
+        // 'lastOnline' => $current_date_time]], ['id', 'username','email'], ['lastOnline']);
+
+        $id = $user->id;
+        $user->lastOnline=$current_date_time;
+        $user->update();
 
         // $users = DB::table('users')->get();
         $users = User::all();
@@ -37,6 +41,9 @@ class ProfileController extends Controller
         $faculty = \App\Models\faculty::all();
         
         $department = \App\Models\Department::all();
+
+        // $batch1 = collect($batch);
+        // $people = DB::table('people')->where('faculty_id', $user->faculty_id)->get()->countby('batch_id');
 
         return view('home')->with('name',$users)->with('faculty', $faculty)->with('user',$user)->with('batch',$batch);
         
