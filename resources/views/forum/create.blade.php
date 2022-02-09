@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session()->has('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session()->get('message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
 <div class="container">
   <form class="row g-3" method="POST" action="/forum" enctype="multipart/form-data">
     @csrf
@@ -21,7 +28,7 @@
     <div class="col-md-6">
       <label for="lname" class="form-label">Last name</label>
 
-      <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" placeholder="Copper" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
+      <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" placeholder="Cooper" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
 
       @error('lname')
           <span class="invalid-feedback" role="alert">
@@ -146,9 +153,7 @@
       <label for="department_id" class="form-label">Department name</label>
 
       <select id="department_id" type="department_id" class="form-select @error('department_id') is-invalid @enderror" name="department_id" value="{{ old('department_id') }}" required autocomplete="department_id">
-        @foreach($dep as $data)
-        <option value="{{$data->id}}">{{$data->name}}</option>
-        @endforeach
+        
       </select>
 
       @error('department_id')
@@ -172,7 +177,7 @@
 
     <div class="mb-3">
       <label for="formFile" class="form-label">Insert a Profile Image</label>
-      <input class="form-control" type="file" id="formFile" name="image">  
+      <input class="form-control" type="file" id="formFile" name="image" required>  
     </div>
 
     <div class="col-12">
@@ -184,18 +189,55 @@
 
 @section('footer')
   <div class="block">
-  <div class="container" >
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+    <div class="container" >
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
 
-      <!-- <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Forum</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">People</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-      </ul> -->
-    </footer>
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Forum</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">People</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+
+      </footer>
+    </div>
   </div>
-  </div>
+@endsection
+
+@section('script')
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script>
+  $(document).ready(function() {
+    $('#faculty_id').on('change', function() {
+            let facID = $(this).val();
+            if(facID) 
+            {
+                $.ajax({
+                    url: '/forum/create/'+facID,
+                    type: "GET",
+                    data : {"_token":"{{ csrf_token() }}"},
+                    dataType: "json",
+                    success:function(data) {
+                      // console.log(data);
+                      if(data)
+                      {
+                        $('#department_id').empty();
+                        $('#department_id').focus;
+                        $('#department_id').append('<option value="">-- Select Department --</option>'); 
+                        $.each(data, function(key, value){$('select[name="department_id"]').append('<option value="'+ key +'">' + value.name+ '</option>');});
+                      }
+                      else
+                      {
+                        $('#department_id').empty();
+                      }
+                    }
+                });
+            }
+            else
+            {$('#department_id').empty();}
+        });
+    });
+  </script>
 @endsection

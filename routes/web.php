@@ -34,6 +34,8 @@ Route::get('/catalogue/{facCode}/{batch}', [App\Http\Controllers\catalogueContro
 
 Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
 
+Route::get('/forum/create/{id}', [App\Http\Controllers\ForumController::class, 'findDepartment']);
+
 Route::post('/forum', [App\Http\Controllers\ForumController::class, 'store'])->name('forum.store');
 
 Route::get('/uop/{username}', [App\Http\Controllers\catalogueController::class, 'getProfile']);

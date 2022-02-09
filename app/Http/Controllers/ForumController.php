@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Department;
+use Image;
+use DB;
+use Illuminate\Filesystem\Filesystem;
 
 class ForumController extends Controller
 {
@@ -37,25 +41,48 @@ class ForumController extends Controller
             'department_id' => ['required','int', 'exists:departments,id'],
         ]);
 
-        // dd($data);
-        $imagePath = request('image')->store('uploads','public');
-       
-        \App\Models\Person::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
-            'username' => $data['username'],
-            'fullname' => $data['fullname'], 
-            'initial' => $data['initial'],
-            'address' => $data['address'],
-            'city' => $data['city'],
-            'date' => $data['date'],
-            'regNo' => $data['regNo'],
-            'image' => $imagePath,
-            'faculty_id' => $data['faculty_id'],
-            'batch_id' => $data['batch_id'],
-            'department_id' => $data['department_id'],
-        ]);
+        //rename
+        $image1 = request('image');
+        $name = $data['username'].'.'.$image1->getClientOriginalExtension();
 
-        return redirect('/forum/create');
+        $file = new Filesystem();
+        $users = DB::table('faculties')->select('name')->where('id', '=', $data['faculty_id'])->first();
+        $username = $users->name;
+        $directory = 'uploads/' . $username;
+
+        if ( $file->isDirectory(storage_path($directory)) )
+        {
+            
+        }
+        else
+        {
+            $file->makeDirectory(storage_path($directory), 755, true, true);
+        }
+
+        $imagePath = request('image')->storeAs($directory,$name);
+       
+            \App\Models\Person::create([
+                'fname' => $data['fname'],
+                'lname' => $data['lname'],
+                'username' => $data['username'],
+                'fullname' => $data['fullname'], 
+                'initial' => $data['initial'],
+                'address' => $data['address'],
+                'city' => $data['city'],
+                'date' => $data['date'],
+                'regNo' => $data['regNo'],
+                'image' => $imagePath,
+                'faculty_id' => $data['faculty_id'],
+                'batch_id' => $data['batch_id'],
+                'department_id' => $data['department_id'],
+            ]);
+
+        return redirect('/forum/create')->with('message', 'Forum data entered Succesfully!!');
+    }
+
+    public function findDepartment($id)
+    {
+        $dep = Department::where('faculty_id',$id)->get();
+        return response()->json($dep);
     }
 }

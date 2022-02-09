@@ -24,9 +24,11 @@
        </div>
        <div id="main-container" class="container pt-2 px-5">
            <div class="row justify-content-center">
+               
+               <!-- Academic Staff cards -->
                <div class="card text-center p-2 cardSpacingHome border-primary" style="width:18rem;">
                    <div class="card-header">
-                       <h5>Staff</h5>
+                       <h5>Academic Staff</h5>
                    </div>
                     <img src="/images/homepage/staff.jpg" class="card-img-top p-3" alt="Staff">
                    <div class="card-body">
@@ -34,20 +36,32 @@
                             <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/academic/">Academic Staff</a>
                             <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/temporary-academic-staff/">Temporary Academic
                                 Staff</a>
-                            <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/academic-support-staff/">Academic Support
+                            <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/academic-support-staff/">Visiting 
                                 Staff</a>
                             <br>
-                            <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/past-heads-of-dep/">Past Heads of the
-                                Department</a>
-                            <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/academic/past/">Past Academic Staff</a>
                        </ul>
                    </div>
                </div>
+
+               <!-- Non Acaademic Staff cards -->
                <div class="card text-center p-2 cardSpacingHome border-primary" style="width:18rem;">
                    <div class="card-header">
+                       <h5>Non Academic Staff</h5>
+                   </div>
+                    <img src="/images/homepage/staff.jpg" class="card-img-top p-3" alt="Staff">
+                   <div class="card-body">
+                       <ul class="list-group list-group-flush">
+                            <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/academic/">Permanent Staff</a>
+                            <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/temporary-academic-staff/">Temporary/Trainee/Contract
+                                Staff</a>
+                            <br>
+                       </ul>
+                   </div>
+               </div>
 
-
-                       <!-- Student cards -->
+               <!-- Student cards -->
+               <div class="card text-center p-2 cardSpacingHome border-primary" style="width:18rem;">
+                   <div class="card-header">
                        <h5>Students</h5>
                    </div>
                     <img src="/images/homepage/student.jpg" class="card-img-top p-3" alt="Students">
@@ -56,22 +70,6 @@
                         <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/catalogue/{{$facultyCode}}/{{$data->id}}">{{$data->id}} Batch</a>
                        @endforeach
                     </div>
-               </div>
-               <div class="card text-center p-2 cardSpacingHome border-primary" style="width:18rem;">
-
-
-
-               <!-- ALUMNI cards -->
-                   <div class="card-header">
-                       <h5>Alumni</h5>
-                   </div>
-                    <img src="/images/homepage/alumni.jpg" class="card-img-top p-3" alt="Students">
-                   <div class="card-body">
-                         <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/students/e14">E14 Batch</a>
-                             <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/students/e13">E13 Batch</a>
-                             <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/students/e12">E12 Batch</a>
-                            <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/alumni/">View more</a>
-                   </div>
                </div>
            </div>
        </div>
@@ -95,12 +93,20 @@
     </script>
 </div>
    </div>
-   <div class="container">
-   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"><p class="col-md-6 mb-1 text-muted" style="font-size:80%;">&copy; COPYRIGHT 2022 DEPARTMENT OF COMPUTER ENGINEERING, UOP<br>Last Update : 29/01/2022
-       </p>
-       <p class="text-xl-left text-muted" style="font-size:80%;"><a href="/documentation/">Documentation</a>
-       </p>
-   </footer>
+
+@section('footer')
+<div class="block mt-auto">
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto">
+            <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <p class="col-md-4 mb-0 text-muted">All rights reserved</p>
+            </ul>
+
+        </footer>
+    </div>
 </div>
+@endsection
 
 @endsection

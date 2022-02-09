@@ -15,4 +15,8 @@ class Faculty extends Model
         'facultyCode',
         'remark'
     ];
+
+    public function departments(){
+        return $this->hasMany(Department::class);
+    }
 }
