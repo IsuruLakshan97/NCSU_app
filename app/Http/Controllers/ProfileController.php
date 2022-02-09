@@ -42,10 +42,10 @@ class ProfileController extends Controller
         
         $department = \App\Models\Department::all();
 
-        $batch1 = collect($batch);
-        $people = DB::table('people')->where('faculty_id', $user->faculty_id)->get()->countby('batch_id');
+        // $batch1 = collect($batch);
+        // $people = DB::table('people')->where('faculty_id', $user->faculty_id)->get()->countby('batch_id');
 
-        return view('home')->with('name',$users)->with('faculty', $faculty)->with('user',$user)->with('batch',$batch)->with('people',$people);
+        return view('home')->with('name',$users)->with('faculty', $faculty)->with('user',$user)->with('batch',$batch);
         
     }
 
