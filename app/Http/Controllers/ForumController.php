@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Department;
 
 class ForumController extends Controller
 {
@@ -57,5 +58,11 @@ class ForumController extends Controller
         ]);
 
         return redirect('/forum/create')->with('message', 'Forum data entered Succesfully!!');
+    }
+
+    public function findDepartment($id)
+    {
+        $dep = Department::where('faculty_id',$id)->get();
+        return response()->json($dep);
     }
 }
