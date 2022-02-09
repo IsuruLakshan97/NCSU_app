@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
                 $table->timestamp('email_verified_at')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
-                $table->string('lastLogin', 20)->nullable();
+                $table->string('lastOnline', 20)->nullable();
 
                 $table->foreign('faculty_id')->references('id')->on('faculties');
             });
