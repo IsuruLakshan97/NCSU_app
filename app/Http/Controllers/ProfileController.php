@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Exceptions\InvalidSignatureException;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -19,6 +20,14 @@ class ProfileController extends Controller
     public function index()
     {
         $user = auth()->user();
+
+        $current_date_time = Carbon::now()->toDateTimeString();
+
+        DB::table('users')->upsert([
+        ['id' => $user->id, 'faculty_id' => $user->faculty_id, 'name' => $user->name, 'username' => $user->username, 'email' => $user->email, 
+        'password' => $user->password, 'remark' => $user->remark, 'active' => $user->active, 'is_admin' => $user->is_admin, 
+        'email_verified_at' => $user->email_verified_at, 'remember_token' => $user->remember_token, 'created_at' => $user->created_at, 'updated_at' => $user->updated_at, 
+        'lastOnline' => $current_date_time]], ['id', 'username','email'], ['lastOnline']);
 
         // $users = DB::table('users')->get();
         $users = User::all();

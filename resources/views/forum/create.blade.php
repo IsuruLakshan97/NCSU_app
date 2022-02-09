@@ -28,7 +28,7 @@
     <div class="col-md-6">
       <label for="lname" class="form-label">Last name</label>
 
-      <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" placeholder="Copper" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
+      <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" placeholder="Cooper" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
 
       @error('lname')
           <span class="invalid-feedback" role="alert">

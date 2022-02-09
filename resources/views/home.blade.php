@@ -19,7 +19,7 @@
                 <th scope="col">Faculty</th>
                 <th scope="col">Active</th>
                 <th scope="col">Type(Admin/user)</th>
-                <th scope="col">Email verification time</th>
+                <th scope="col">Last Login to Platform</th>
                 <th scope="col">Remark</th>
                 </tr>
             </thead>
@@ -33,7 +33,7 @@
                     <td>{{$data->faculty->name}}</td>
                     <td>{{$data->active}}</td><!-- need to change to department values -->
                     <td>{{$data->is_admin}}</td>
-                    <td>{{$data->email_verified_at}}</td>
+                    <td>{{$data->lastOnline}}</td>
                     <td>{{$data->remark}}</td>
                     <td><a type="button" class="btn btn-primary btn-sm" role="button" href="/profile/{{$data->id}}">Delete</a></td>
                 </tr>
@@ -59,7 +59,7 @@
             </div>
         </div> -->
         <main class="container">
-            <h1>{{$user->faculty->name}}</h1>
+            <h1>Admin | {{$user->faculty->name}}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
