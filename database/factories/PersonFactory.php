@@ -31,7 +31,7 @@ class PersonFactory extends Factory
 
             'lname' => $lastName ,
 
-            'username' => $this->faker->unique()->userName($maxNbChars = 20),
+            'username' => $firstName.$this->faker->unique()->randomNumber($nbDigits = 5, $strict = true),
 
             'fullname' => $firstName.' '.$middleName.' '.$lastName,
 
