@@ -1,0 +1,29 @@
+.container{
+    height: auto;
+    width: 100%;
+}
+
+h1,h5{
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: maroon ;
+    text-align: center;
+}
+
+.container2{
+    padding-left: 35%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.right-column{
+    float: right;
+    width: 50%;
+    padding-bottom: 10%;
+}
+
+.left-column{
+    float: left;
+    width: 50%;    
+    padding-bottom: 10%;
+}
