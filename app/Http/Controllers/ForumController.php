@@ -34,7 +34,7 @@ class ForumController extends Controller
             'address' => ['required','string', 'max:100'],
             'city' => ['required','string', 'max:100'],
             'date' => ['required','string'],
-            'regNo' => ['required','string', 'max:10','unique:people'],
+            'regNo' => ['required','string', 'max:10','unique:people','regex:/^([A-Z]{1,2}\/{1}+\d{2}\/{1}+\d{3})/'],
             'image' => ['required','image'],
             'faculty_id' => ['required','int','exists:faculties,id'],
             'batch_id' => ['required','int','exists:batches,id'],
