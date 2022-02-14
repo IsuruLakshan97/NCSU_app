@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Department;
+use App\Models\Batch;
+use App\Models\Faculty;
+
 use Image;
 use DB;
 use Illuminate\Filesystem\Filesystem;
@@ -12,14 +16,11 @@ class ForumController extends Controller
 {
     public function create()
     {
-        $faculty = new \App\Models\faculty();
-        $department = new \App\Models\Department();
 
-        $faculties = $faculty::all();
-        $departments = $department::all();
-        $batches = \App\Models\Batch::all();
+        $faculties = Faculty::all();
+        $batches = Batch::all();
 
-        return view('forum.create')->with('fac', $faculties)->with('dep', $departments)->with('batch',$batches);
+        return view('forum.create')->with('fac', $faculties)->with('batch',$batches);
     }
 
     public function store(){
@@ -48,7 +49,7 @@ class ForumController extends Controller
         $file = new Filesystem();
         $users = DB::table('faculties')->select('name')->where('id', '=', $data['faculty_id'])->first();
         $username = $users->name;
-        $directory = 'uploads/' . $username;
+        $directory = 'public/uploads/' . $username;
 
         if ( $file->isDirectory(storage_path($directory)) )
         {
