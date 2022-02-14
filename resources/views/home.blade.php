@@ -9,37 +9,52 @@
         <a class="dropdown-item" href="/faculty/create">Add new faculty</a>
         @endsection
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Username</th>
-                <th scope="col">Email</th>
-                <th scope="col">Faculty</th>
-                <th scope="col">Active</th>
-                <th scope="col">Type(Admin/user)</th>
-                <th scope="col">Last Login to Platform</th>
-                <th scope="col">Remark</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach($name as $data)
-                <tr>
-                    <th scope="row">{{$data->id}}</th>
-                    <td>{{$data->name}}</td>
-                    <td>{{$data->username}}</td>
-                    <td>{{$data->email}}</td>
-                    <td>{{$data->faculty->name}}</td>
-                    <td>{{$data->active}}</td><!-- need to change to department values -->
-                    <td>{{$data->is_admin}}</td>
-                    <td>{{$data->lastOnline}}</td>
-                    <td>{{$data->remark}}</td>
-                    <td><a type="button" class="btn btn-primary btn-sm" role="button" href="/profile/{{$data->id}}">Delete</a></td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+        <div class ="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Faculty</th>
+                    <th scope="col">Active</th>
+                    <th scope="col">Type(Admin/user)</th>
+                    <th scope="col">Last Login</th>
+                    <th scope="col">Remark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach($name as $data)
+                    @if($data->is_admin === 1)
+                        @php $isAdmin = "Super admin"; @endphp
+                    @elseif($data->is_admin === 0)
+                        @php $isAdmin = "admin"; @endphp
+                    @endif
+
+                    @if($data->active === 1)
+                        @php $active = "Yes"; @endphp
+                    @elseif($data->active === 0)
+                        @php $active = "No"; @endphp
+                    @endif
+
+                    <tr>
+                        <th scope="row">{{$data->id}}</th>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->username}}</td>
+                        <td>{{$data->email}}</td>
+                        <td>{{$data->faculty->name}}</td>
+                        <td>{{$active}}</td>
+                        <td>{{$isAdmin}}</td>
+                        <td>{{$data->lastOnline}}</td>
+                        <td>{{$data->remark}}</td>
+                        <td><a type="button" class="btn btn-primary btn-sm" role="button" href="/profile/{{$data->id}}">Delete</a></td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+        
     @else
         <!-- <div class="row justify-content-center">
             <div class="col-md-8">
