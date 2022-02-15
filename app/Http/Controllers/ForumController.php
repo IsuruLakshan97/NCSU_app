@@ -12,9 +12,6 @@ use Image;
 use DB;
 use Illuminate\Filesystem\Filesystem;
 
-use Adldap\Laravel\Facades\Adldap;
-// use Adldap\AdldapInterface;
-
 class ForumController extends Controller
 {
     public function create()
@@ -90,20 +87,4 @@ class ForumController extends Controller
         return response()->json($dep);
     }
 
-    public function adldap()
-    {
-        $ad = new Adldap();
-        $connectionName = 'ad.pdn.ac.lk';
-
-        try {
-            $provider = $ad::connect($connectionName);
-            $search = $provider->search();
-            $results = $search->find('Chandula M');
-
-            dd($results);
-        } catch (\Adldap\Auth\BindException $e) {
-            echo 'Error: '.$e->getMessage()."\r\n";
-        }
-        // dd($adldap);
-    }
 }
