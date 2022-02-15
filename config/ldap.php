@@ -33,6 +33,22 @@ return [
 
     'connections' => [
 
+        'ad.pdn.ac.lk' => [
+
+            'auto_connect' => env('LDAP_AUTO_CONNECT', true),
+
+            'connection' => Adldap\Connections\Ldap::class,
+
+            'settings' => [
+                'hosts' => ['ad.pdn.ac.lk',],
+                'base_dn' => 'dc=ad, dc=pdn, dc=ac, dc=lk, ou=UOP',
+                'username' => 'PDNAD\chandula',
+                'password' => 'P@ssw0rd',
+                'schema' => Adldap\Schemas\ActiveDirectory::class,
+            ],
+
+        ],
+
         'default' => [
 
             /*
