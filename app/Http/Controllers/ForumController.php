@@ -49,7 +49,7 @@ class ForumController extends Controller
         $file = new Filesystem();
         $users = DB::table('faculties')->select('name')->where('id', '=', $data['faculty_id'])->first();
         $username = $users->name;
-        $directory = 'public/uploads/' . $username;
+        $directory = 'uploads/' . $username;
 
         if ( $file->isDirectory(storage_path($directory)) )
         {
