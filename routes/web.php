@@ -40,8 +40,6 @@ Route::post('/forum', [App\Http\Controllers\ForumController::class, 'store'])->n
 
 Route::get('/uop/{username}', [App\Http\Controllers\catalogueController::class, 'getProfile']);
 
-Route::get('/adldap', [App\Http\Controllers\ForumController::class, 'adldap']);
-
 // Route that can be only accesed by the super admin
 Route::group(['middleware' => ['auth', 'admin']], function() {
     // your routes
