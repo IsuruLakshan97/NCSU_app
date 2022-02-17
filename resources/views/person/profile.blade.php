@@ -19,7 +19,7 @@
            <div class="card">
                <div class="card-body">
                    <div class="d-flex flex-column align-items-center text-center">
-                        <img src="/storage/{{$person->image}}" alt="image" style="border-radius: 10%" width="250">
+                        <img src="/storage/app/{{$person->image}}" alt="image" style="border-radius: 10%" width="250">
                        <div class="mt-2">
                            <h4>{{$person->initial}}</h4>
                        </div>
