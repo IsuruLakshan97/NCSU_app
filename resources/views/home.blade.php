@@ -83,15 +83,20 @@
             </nav>
         </main>
         
-        <div class="row py-4">
-            <div class="col-md-2"></div>
-            <div class="d-grid gap-2 col-md-8">
+        <div class="row justify-content-center pb-5">
                 @foreach($batch as $data)
-                <a role="button" class="btn btn-outline-primary" type="button" href="/person/{{$data->id}}">{{$data->batch}}</a>
+                <div class="card text-center p-2 m-1 border-primary" style="width: 11rem;">
+                <div class="card-body d-flex flex-column">
+                <h6 class="card-title">
+                    {{$people[$data->id]}}
+                    </h6>
+                <p class="card-text">To be verified..</p>
+                <div class="d-flex flex-row justify-content-center mt-auto">
+                        <a role="button" class="btn btn-outline-primary" type="button" href="/person/{{$data->id}}">{{$data->batch}}</a>
+                </div>
+                </div>
+                </div>
                 @endforeach
-            </div>
-        </div>
-        
     @endif
 </div>
 
