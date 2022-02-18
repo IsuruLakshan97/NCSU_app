@@ -2,44 +2,49 @@
 
 <head>
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/nicepage.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/nicepage.js"></script>
 </head>
   
 @section('content')
 
-<div class="container">
-  <div class = "left-column">
-    <p>Image slider or whatever</p>
-  </div>
+<div class="container2" style="background-image:url(/img/back2.jpeg);">
 
-  <div class="right-column">
-    <div class="container2">
-      <div class="col-md-4 col-sm-12 text-center py-3">
-        <h1><i class="fas fa-school"></i></h1>
-        <h1><span class="counter">9</span></h1>
-        <h5>Faculties</h5>
+<section class="u-clearfix u-image u-shading u-section-1" src="" data-image-width="1280" data-image-height="800" id="sec-5f60">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-align-center u-container-style u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-1">Title#1</h2>
+            <p class="u-text u-text-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ratione voluptatibus quidem accusamus labore nemo laudantium amet quam iure architecto dolorum vitae, excepturi consectetur inventore, praesentium beatae quia sapiente et.</p>
+            <a href="/catalogue/" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-50 u-btn-1">EXPLORE</a>
+          </div>
+        </div>
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-list-item-1">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
+                <h1 class="u-text u-text-default u-title u-text-3" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">9</h1>
+                <p class="u-text u-text-4">Faculties</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-list-item-2">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
+                <h1 class="u-text u-text-default u-title u-text-5" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">18000 +</h1>
+                <p class="u-text u-text-6">Students</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-list-item-3">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
+                <h1 class="u-text u-text-default u-title u-text-7" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">1500 +</h1>
+                <p class="u-text u-text-8">Staff</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-                 
-      <div class="col-md-4 col-sm-12 text-center py-3">
-        <h1><i class="fas fa-user-graduate"></i></h1>
-        <h1><span class="counter">18000</span>+</h1>
-        <h5>Students</h5>
-      </div>
-
-      <div class="col-md-4 col-sm-12 text-center py-3">
-        <h1><i class="fas fa-users"></i></h1>
-        <h1><span class="counter">1500</span>+</h1>
-        <h5>Academic Staff</h5>
-      </div>             
-    </div>
-
-    <div class="title1">
-      <h5 class="main-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores consequuntur aliquam a! Minus nemo pariatur, rerum nobis cupiditate corporis sequi fugiat ipsum quibusdam voluptatem accusamus fuga ab magnam. Aperiam, omnis.</h1>
-      link to people page
-    </div>
-
-  </div>
-
+    </section>
 
 </div>
  
