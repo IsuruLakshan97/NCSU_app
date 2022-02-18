@@ -17,7 +17,7 @@
         <div class="u-align-center u-container-style u-group u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h1 class="font-weight-bold u-text u-text-1">Data Aquisition Project</h2>
-            <p class="u-text u-text-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ratione voluptatibus quidem accusamus labore nemo laudantium amet quam iure architecto dolorum vitae, excepturi consectetur inventore, praesentium beatae quia sapiente et.</p>
+            <p class="u-text u-text-2">University-wide Data Collection of Unversity personnel, each of which verified by an official from the University of Peradeniya.</p>
             <a href="/catalogue/" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-50 u-btn-1">EXPLORE</a>
           </div>
         </div>
