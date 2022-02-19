@@ -1,5 +1,24 @@
 @extends('layouts.app')
 
+@section('charts')
+    <!-- Chart's container -->
+    <div id="chart" style="height: 300px;"></div> 
+    <!-- Charting library -->
+    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
+    <!-- Your application script -->
+    <script>
+      const chart = new Chartisan({
+        el: '#chart',
+        url: "@chart('s_admin_chart')",
+        hooks: new ChartisanHooks()
+                .colors(['#8A0008'])
+                .title('No of Unverified Students Vs Faculty Code', { position: 'center' }),
+      });
+    </script>
+@endsection
+
 @section('content')
 <div class="container">
     @if ($user->is_admin === 1)
@@ -54,7 +73,6 @@
                 </tbody>
             </table>
         </div>
-        
     @else
         <!-- <div class="row justify-content-center">
             <div class="col-md-8">
