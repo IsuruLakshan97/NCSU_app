@@ -1,0 +1,12 @@
+TODOS:
+	background image home page
+	footer template
+	remove topic data catalogue in the catalogue page
+	add images for users in catalogue page
+	photo directories
+	AD connection and data transfering
+	testing
+
+BUGS: 
+	student catalogue shows false data
+	super admin last login time adjustment
