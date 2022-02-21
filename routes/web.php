@@ -53,4 +53,3 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
     Route::get('/faculty/create', [App\Http\Controllers\FacultyController::class, 'create']);
 });
-

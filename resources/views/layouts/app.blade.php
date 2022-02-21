@@ -20,6 +20,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- favicon -->
     <link rel="icon" href="img/favicon.png">
+    <!-- apple touch icon -->
+    <link rel="apple-touch-icon" href="img/favicon.png">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div id="app">

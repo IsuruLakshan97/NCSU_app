@@ -8,6 +8,10 @@
     </div>
 @endif
 
+<div class="container p-2 pb-2 rounded">
+            <h1 class="text-center font-weight-bold">Data Collection Form</h1>
+</div>
+
 <div class="container">
   <form class="row g-3" method="POST" action="/forum" enctype="multipart/form-data">
     @csrf
@@ -181,6 +185,10 @@
     </div>
 
     <div class="col-12">
+      <p>Above details are true to the best of my knowledge and belief
+        and I understand that I subject myself to disciplinary action in the event that
+        the above facts are found to be falsified. 
+      </p>
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 
