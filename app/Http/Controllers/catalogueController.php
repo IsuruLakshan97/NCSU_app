@@ -20,6 +20,7 @@ class catalogueController extends Controller
         return view('catalogue.catalogue')->with('fac', $faculties);
         
     }
+    
     public function getBatches($facCode)
     {
         $faculty = new faculty();
@@ -30,6 +31,7 @@ class catalogueController extends Controller
         return view('catalogue.batch')->with('facultyCode', $facCode)->with('facultyname', $fac_name)->with('batches', $batches);
         
     }
+    
     public function getStudents($facCode, $batch)
     {
         //dd($fac);
