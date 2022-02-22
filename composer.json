@@ -9,12 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-<<<<<<< HEAD
-        "ext-gd": "*",
-=======
         "consoletvs/charts": "7.*",
         "directorytree/ldaprecord-laravel": "^2.5",
->>>>>>> c066484636d397fad516649f652b7a638a7ca9c7
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.7",
