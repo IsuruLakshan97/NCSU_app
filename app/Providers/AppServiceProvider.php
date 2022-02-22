@@ -26,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
          $charts->register([
-            \App\Charts\SAdminChart::class
+            \App\Charts\SAdminChart::class,
+            \App\Charts\SAdminChart2::class
         ]);
     }
 }
