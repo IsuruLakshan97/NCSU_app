@@ -18,3 +18,4 @@ yarn-error.log
 
 # user profiles
 /storage/uploads/
+/public/uploads/
