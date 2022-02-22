@@ -42,9 +42,9 @@ class catalogueController extends Controller
         //dd($fac_id);
 
         $person = new verifiedData();
-        $students = $person::where('faculty_id', $fac_id)->where('batch_id', $batch)->orderBy('regNo', 'asc')->get();
+        $students = $person::select('image', 'fullname', 'regNo', 'username')->where('faculty_id', $fac_id)->where('batch_id', $batch)->orderBy('regNo', 'asc')->get();
         // dd($students);
-        return view('catalogue.student')->with('facultyCode', $facCode)->with('facultyID', $fac_id)->with('people', $students)->with('batch', $batch);
+        return view('catalogue.student')->with('facultyCode', $facCode)->with('people', $students)->with('batch', $batch);
         
     }
     
