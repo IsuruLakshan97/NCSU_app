@@ -40,8 +40,8 @@ class ForumController extends Controller
 
         // Define and initialize paths for different directories
         $paths = [
-            'image_path' => storage_path('uploads\images\\'.$tmpPath),
-            'thumbnail_path' => storage_path('uploads\thumbs\\'.$tmpPath)
+            'image_path' => public_path('uploads\images\\'.$tmpPath),
+            'thumbnail_path' => public_path('uploads\thumbs\\'.$tmpPath)
         ];
 
         // Create paths
@@ -51,14 +51,14 @@ class ForumController extends Controller
             }
         }
 
-        return $paths;
+        return $tmpPath;
     }
 
     /**
      * Change image name
      * Save image in respective directory
      */
-    private function storeImage($paths, $regNo, $file) {     
+    private function storeImage($path, $regNo, $file) {     
         // Create the image name
         $number = explode('/', $regNo)[2];
         // $imageName = $number.'.'.$file->getClientOriginalExtension();
@@ -66,14 +66,13 @@ class ForumController extends Controller
 
         // Load the image, resize it and then save the profile image
         $image = Image::make($file)->fit(400, 400);
-        $image_path = $paths['image_path'].$imageName;
-        $image->save($image_path);
+        $image->save(public_path('uploads\images\\'.$path).$imageName);
 
         // Resize the image and save the tumbnail
         $image->resize(150,150);
-        $image->save($paths['thumbnail_path'].$imageName);
+        $image->save(public_path('uploads\thumbs\\'.$path).$imageName);
 
-        return $image_path;
+        return '\uploads\images\\'.$path.$imageName;
     }
 
     public function store(){

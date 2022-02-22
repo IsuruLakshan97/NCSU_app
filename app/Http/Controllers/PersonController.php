@@ -23,9 +23,16 @@ class PersonController extends Controller
     {
         $user = auth()->user();
 
-        $people = Person::where(['batch_id'=>$batch->id,'faculty_id'=>$user->faculty_id])->orderBy('regNo', 'asc')->get();
-                
-        return view('person.view')->with('people',$people)->with('user',$user);
+        $people = Person::select('id', 'initial', 'regNo', 'image', 'batch_id')->where(['batch_id'=>$batch->id,'faculty_id'=>$user->faculty_id])->orderBy('regNo', 'asc')->get();
+        
+        // Change the image url to pick the 
+        foreach ($people as $key => $person) {
+            $image_link = explode('\\', $person->image);
+            $image_link[2] = 'thumbs';
+            $person->image = implode('/', $image_link);
+        }
+
+        return view('person.view')->with('people',$people)->with('faculty_name',$user->faculty->name);
     }
 
     public function profile(Batch $batch, Person $person){
