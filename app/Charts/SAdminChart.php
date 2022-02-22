@@ -8,6 +8,7 @@ use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
 use \App\Models\Person;
+use \App\Models\verifiedData;
 use App\Models\faculty;
 
 class SAdminChart extends BaseChart
@@ -39,15 +40,17 @@ class SAdminChart extends BaseChart
      * and never a string or an array.
      */
     public function handler(Request $request): Chartisan
-    {
-        //dd($request);
+    {   
+        //chart1
         $people = Person::select('faculty_id')->orderBy('faculty_id','asc')->get()->countBy('faculty_id')->values()->toArray();
+        $verifiedpeople = verifiedData::select('faculty_id')->orderBy('faculty_id','asc')->get()->countBy('faculty_id')->values()->toArray();
         $faculties = faculty::select('facultyCode')->get()->pluck('facultyCode')->toArray();
 
         return Chartisan::build()
             ->labels($faculties)
-            ->dataset('Sample', $people);
-        
+            ->dataset('unverified', $people)
+            ->dataset('verified', $verifiedpeople);
+
         // return Chartisan::build()
         //     ->labels(['First', 'Second', 'Third'])
         //     ->dataset('Sample', [1, 2, 3])
