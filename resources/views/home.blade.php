@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('charts')
+@section('content')
+<div class="container">
+    @if ($user->is_admin === 1)
+
+    @section('charts')
     <div class="container">
     <div class="p-3 pb-3 rounded">
             <h2 class="text-center">Database Insights</h2>
@@ -42,11 +46,7 @@
       });
     </script>
     </div> 
-@endsection
-
-@section('content')
-<div class="container">
-    @if ($user->is_admin === 1)
+    @endsection
 
         @section('navbar')
         <a class="dropdown-item" href="/profile/create">Add new user</a>
