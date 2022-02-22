@@ -20,12 +20,8 @@ class catalogueController extends Controller
         return view('catalogue.catalogue')->with('fac', $faculties);
         
     }
-<<<<<<< HEAD
-    
-=======
 
     // this function gives the batches of a faculty
->>>>>>> c066484636d397fad516649f652b7a638a7ca9c7
     public function getBatches($facCode)
     {
         $faculty = new faculty();
@@ -36,12 +32,8 @@ class catalogueController extends Controller
         return view('catalogue.batch')->with('facultyCode', $facCode)->with('facultyname', $fac_name)->with('batches', $batches);
         
     }
-<<<<<<< HEAD
-    
-=======
 
     // this function gives the students of a batch of a faculty
->>>>>>> c066484636d397fad516649f652b7a638a7ca9c7
     public function getStudents($facCode, $batch)
     {
         //dd($fac);
