@@ -25,7 +25,7 @@ class PersonController extends Controller
 
         $people = Person::select('id', 'initial', 'regNo', 'image', 'batch_id')->where(['batch_id'=>$batch->id,'faculty_id'=>$user->faculty_id])->orderBy('regNo', 'asc')->get();
         
-        // Change the image url to pick the 
+        // Change the image url to pick its respective thumbnails
         foreach ($people as $key => $person) {
             $image_link = explode('\\', $person->image);
             $image_link[2] = 'thumbs';

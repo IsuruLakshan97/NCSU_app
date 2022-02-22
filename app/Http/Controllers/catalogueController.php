@@ -42,9 +42,17 @@ class catalogueController extends Controller
         //dd($fac_id);
 
         $person = new verifiedData();
-        $students = $person::select('image', 'fullname', 'regNo', 'username')->where('faculty_id', $fac_id)->where('batch_id', $batch)->orderBy('regNo', 'asc')->get();
+        $people = $person::select('image', 'fullname', 'regNo', 'username')->where('faculty_id', $fac_id)->where('batch_id', $batch)->orderBy('regNo', 'asc')->get();
+        
+        // Change the image url to pick its respective thumbnails
+        foreach ($people as $key => $person) {
+            $image_link = explode('\\', $person->image);
+            $image_link[2] = 'thumbs';
+            $person->image = implode('/', $image_link);
+        }
+        
         // dd($students);
-        return view('catalogue.student')->with('facultyCode', $facCode)->with('people', $students)->with('batch', $batch);
+        return view('catalogue.student')->with('facultyCode', $facCode)->with('people', $people)->with('batch', $batch);
         
     }
     
