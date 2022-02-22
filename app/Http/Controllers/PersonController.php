@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use \App\Models\Person;
 use \App\Models\Batch;
 use \App\Models\verifiedData;
+use LdapRecord\Models\ActiveDirectory\User;
+use SebastianBergmann\Environment\Console;
 
 class PersonController extends Controller
 {
@@ -35,9 +37,30 @@ class PersonController extends Controller
 
     public function verify(Batch $batch, Person $person)
     {
+        //passing data from people table to verified data table
         $data = $person->replicate();
         $data = $data->toArray();
         verifiedData::firstOrCreate($data);
+
+        //create a new user in AD
+        // try {
+        //     $user = new User();
+
+        //     $user->cn = $person->regNo;
+        //     $user->displayName = $person->fullname;
+        //     $user->givenName = $person->fname;
+        //     // $user->initials = $person->initial;
+        //     $user->sn = $person->lname;
+        //     $user->sAMAccountName = $person->username;
+        //     $user->streetAddress = $person->address;
+        //     $user->l = $person->city;
+        //     $user->department = $person->department->name;
+
+        //     $user->save();
+
+        // } catch (\Throwable $th) {
+        //     dd($th);
+        // }
 
         $person->delete();
 

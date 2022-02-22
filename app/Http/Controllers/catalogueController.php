@@ -20,7 +20,12 @@ class catalogueController extends Controller
         return view('catalogue.catalogue')->with('fac', $faculties);
         
     }
+<<<<<<< HEAD
     
+=======
+
+    // this function gives the batches of a faculty
+>>>>>>> c066484636d397fad516649f652b7a638a7ca9c7
     public function getBatches($facCode)
     {
         $faculty = new faculty();
@@ -31,7 +36,12 @@ class catalogueController extends Controller
         return view('catalogue.batch')->with('facultyCode', $facCode)->with('facultyname', $fac_name)->with('batches', $batches);
         
     }
+<<<<<<< HEAD
     
+=======
+
+    // this function gives the students of a batch of a faculty
+>>>>>>> c066484636d397fad516649f652b7a638a7ca9c7
     public function getStudents($facCode, $batch)
     {
         //dd($fac);
@@ -40,32 +50,33 @@ class catalogueController extends Controller
         //dd($fac_id);
 
         $person = new verifiedData();
-        $students = $person::where('faculty_id', $fac_id)->orderBy('regNo', 'asc')->get();
+        $students = $person::where('faculty_id', $fac_id)->where('batch_id', $batch)->orderBy('regNo', 'asc')->get();
         // dd($students);
         return view('catalogue.student')->with('facultyCode', $facCode)->with('facultyID', $fac_id)->with('people', $students)->with('batch', $batch);
         
     }
     
-    public function getDetails($facCode, $batch, $regno)
-    {
-        //dd($fac);
-        $faculty = new faculty();
-        $fac_name = $faculty::where('facultyCode', $facCode)->firstorFail()->name;
-        $fac_id = $faculty::where('facultyCode', $facCode)->firstorFail()->id;
-        //dd($fac_id);
+    //  ## this function is not used!!!
+    // public function getDetails($facCode, $batch, $regno)
+    // {
+    //     //dd($fac);
+    //     $faculty = new faculty();
+    //     $fac_name = $faculty::where('facultyCode', $facCode)->firstorFail()->name;
+    //     $fac_id = $faculty::where('facultyCode', $facCode)->firstorFail()->id;
+    //     //dd($fac_id);
 
-        $no = "E/16/".Str::afterLast($regno,'/');
-        //dd($no);
-        $person = new verifiedData();
-        $studentDetails = $person::where('faculty_id', $fac_id)->where('regNo','=', $no)->firstorFail();
+    //     $no = "E/16/".Str::afterLast($regno,'/');
+    //     //dd($no);
+    //     $person = new verifiedData();
+    //     $studentDetails = $person::where('faculty_id', $fac_id)->where('regNo','=', $no)->firstorFail();
         
-        $department = new Department();
-        //$depid = $studentDetails->department_id;
-        $dep_name = $department::where('faculty_id', $fac_id)->where('id', $studentDetails->department_id)->firstorFail()->name;
-        //dd($studentDetails);
-        return view('catalogue.details')->with('details', $studentDetails)->with('facName', $fac_name)->with('depName', $dep_name)->with('facultyCode', $facCode)->with('batch', $batch);
+    //     $department = new Department();
+    //     //$depid = $studentDetails->department_id;
+    //     $dep_name = $department::where('faculty_id', $fac_id)->where('id', $studentDetails->department_id)->firstorFail()->name;
+    //     //dd($studentDetails);
+    //     return view('catalogue.details')->with('details', $studentDetails)->with('facName', $fac_name)->with('depName', $dep_name)->with('facultyCode', $facCode)->with('batch', $batch);
         
-    }
+    // }
 
     public function getProfile($username)
     {

@@ -98,6 +98,7 @@
         </main>
 
     </div>
+    @yield('charts')
     @yield('footer')
 </body>
 @yield('script')
