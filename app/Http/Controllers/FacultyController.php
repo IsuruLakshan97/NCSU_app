@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\faculty;
 
 class FacultyController extends Controller
 {
@@ -24,7 +25,7 @@ class FacultyController extends Controller
             'remark' => ['required', 'string', 'max:100'],
         ]);
 
-        \App\Models\faculty::create($data);
+        faculty::create($data);
 
         return redirect()->back()->with('message', 'New faculty added to the database Succesfully!!');
     }
