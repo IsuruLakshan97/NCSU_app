@@ -37,9 +37,9 @@ class PersonController extends Controller
 
     public function profile(Batch $batch, Person $person){
         // dd($person->id);
-        $user = auth()->user();
+        $faculty_name = auth()->user()->faculty->name;
 
-        return view('person.profile')->with('person',$person)->with('user',$user);
+        return view('person.profile')->with('person',$person)->with('faculty_name',$faculty_name);
     }
 
     public function verify(Batch $batch, Person $person)
