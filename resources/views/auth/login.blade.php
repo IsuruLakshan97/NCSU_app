@@ -12,12 +12,12 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-end">Username</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -70,4 +70,20 @@
         </div>
     </div>
 </div>
+
+@section('footer')
+<div class="block mt-auto">
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto">
+            <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <p class="col-md-4 mb-0 text-muted">All rights reserved</p>
+            </ul>
+
+        </footer>
+    </div>
+</div>
+@endsection
+
 @endsection

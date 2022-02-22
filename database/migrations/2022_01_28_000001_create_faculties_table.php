@@ -13,11 +13,15 @@ class CreateFacultiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('faculties', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('faculties')) {
+            Schema::create('faculties', function (Blueprint $table) {
+                $table->integer('id')->primary();
+                $table->string("name", 100)->unique();
+                $table->string("facultyCode", 10)->unique();
+                $table->string("remark")->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

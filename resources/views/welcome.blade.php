@@ -1,62 +1,69 @@
-<html lang="en">
+@extends('layouts.app')
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
-    <title>Data collection website</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/nicepage.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/nicepage.js"></script>
 </head>
-<body>
-    <!-- Navigation bar -->
-    <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Forum</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-    </section>
-    <!-- ------ -->
 
-    <!-- banner section -->
-    <section id="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="promo-title"> DATA COLLECTION WEBSITE</p>
-                    <P> This website is used to collect the data of the academic staff University of Peradeniya. Please click the FILL FORUM button to enter the data..</P>
-                    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Fill forum</a>
-                    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Login</a>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="/img/books.png" class="img-fluid" alt="Responsive image">
-                </div>
-            </div>
+@section('content')
+
+<div class="container2" style="background-image:url(/img/back3.jpg);">
+
+<section class="u-clearfix u-image u-shading u-section-1" src="" data-image-width="1280" data-image-height="800" id="sec-5f60">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-align-center u-container-style u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="font-weight-bold u-text u-text-1">Data Aquisition Project</h2>
+            <p class="u-text u-text-2">University-wide Data Collection of Unversity personnel, each of which verified by an official from the University of Peradeniya.</p>
+            <a href="/catalogue/" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-1-light-1 u-radius-50 u-btn-1">EXPLORE</a>
+          </div>
         </div>
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-list-item-1">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
+                <h1 class="u-text u-text-default u-title u-text-3" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">9</h1>
+                <p class="u-text u-text-4">Faculties</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-list-item-2">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
+                <h1 class="u-text u-text-default u-title u-text-5" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">18000 +</h1>
+                <p class="u-text u-text-6">Students</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-repeater-item u-video-cover u-list-item-3">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
+                <h1 class="u-text u-text-default u-title u-text-7" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">1500 +</h1>
+                <p class="u-text u-text-8">Staff</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer section -->
-    <section id="footer">
-        <div class="container">
-            <p class="text-center">© 2022 University of Peradeniya</p>
-        </div>
-    </section>
-</body>
-</html>
+</div>
+ 
+@endsection
+
+@section('footer')
+  <div class="block">
+  <div class="container" >
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">© 2022 University of Peradeniya</p>
+
+      <!-- <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Forum</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">People</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      </ul> -->
+    </footer>
+  </div>
+  </div>
+@endsection
