@@ -39,12 +39,13 @@ class catalogueController extends Controller
         //dd($fac);
         $faculty = new faculty();
         $fac_id = $faculty::where('facultyCode', $facCode)->firstorFail()->id;
+        $fac_name = $faculty::where('facultyCode', $facCode)->firstorFail()->name;
         //dd($fac_id);
 
         $person = new verifiedData();
         $students = $person::where('faculty_id', $fac_id)->where('batch_id', $batch)->orderBy('regNo', 'asc')->get();
         // dd($students);
-        return view('catalogue.student')->with('facultyCode', $facCode)->with('facultyID', $fac_id)->with('people', $students)->with('batch', $batch);
+        return view('catalogue.student')->with('facultyCode', $facCode)->with('facultyname', $fac_name)->with('facultyID', $fac_id)->with('people', $students)->with('batch', $batch);
         
     }
     
