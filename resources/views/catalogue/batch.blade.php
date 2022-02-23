@@ -29,7 +29,7 @@
                    <div class="card-header">
                        <h5>Academic Staff</h5>
                    </div>
-                    <img src="/images/homepage/staff.jpg" class="card-img-top p-3" alt="Staff">
+                    {{-- <img src="/images/homepage/staff.jpg" class="card-img-top p-3" alt="Staff"> --}}
                    <div class="card-body">
                        <ul class="list-group list-group-flush">
                             <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/academic/">Academic Staff</a>
@@ -47,7 +47,7 @@
                    <div class="card-header">
                        <h5>Non Academic Staff</h5>
                    </div>
-                    <img src="/images/homepage/staff.jpg" class="card-img-top p-3" alt="Staff">
+                    {{-- <img src="/images/homepage/staff.jpg" class="card-img-top p-3" alt="Staff"> --}}
                    <div class="card-body">
                        <ul class="list-group list-group-flush">
                             <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/staff/academic/">Permanent Staff</a>
@@ -63,7 +63,7 @@
                    <div class="card-header">
                        <h5>Students</h5>
                    </div>
-                    <img src="/images/homepage/student.jpg" class="card-img-top p-3" alt="Students">
+                    {{-- <img src="/images/homepage/student.jpg" class="card-img-top p-3" alt="Students"> --}}
                    <div class="card-body">
                        @foreach($batches as $data)
                         <a class="btn btn-outline-primary w-100 buttonBottomMargin" href="/catalogue/{{$facultyCode}}/{{$data->id}}">{{$data->id}} Batch</a>
