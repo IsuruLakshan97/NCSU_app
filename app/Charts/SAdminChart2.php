@@ -43,9 +43,9 @@ class SAdminChart2 extends BaseChart
     {   
         //#####chart2 requests to be verified day by day
         $noEntriesUnverified = Person::select(\DB::raw('DATE(`created_at`)'))->orderBy('created_at','asc')->get()->countBy('DATE(`created_at`)')->values()->toArray();
-        $dates1 = Person::select(\DB::raw('DATE(`created_at`)'))->groupBy('DATE(`created_at`)')->orderBy('created_at','asc')->get()->pluck('DATE(`created_at`)')->toArray();
-        $noEntriesVerified = verifiedData::select(\DB::raw('DATE(`created_at`)'))->orderBy('created_at','asc')->get()->countBy('DATE(`created_at`)')->values()->toArray();
-        $dates2 = verifiedData::select(\DB::raw('DATE(`created_at`)'))->groupBy('DATE(`created_at`)')->orderBy('created_at','asc')->get()->pluck('DATE(`created_at`)')->toArray();
+        $dates1 = Person::select(\DB::raw('DATE(`created_at`)'))->groupBy('DATE(`created_at`)')->orderBy('DATE(`created_at`)','asc')->get()->pluck('DATE(`created_at`)')->toArray();
+        $noEntriesVerified = verifiedData::select(\DB::raw('DATE(`created_at`)'))->orderBy('DATE(`created_at`)','asc')->get()->countBy('DATE(`created_at`)')->values()->toArray();
+        $dates2 = verifiedData::select(\DB::raw('DATE(`created_at`)'))->groupBy('DATE(`created_at`)')->orderBy('DATE(`created_at`)','asc')->get()->pluck('DATE(`created_at`)')->toArray();
 
 
         return Chartisan::build()
