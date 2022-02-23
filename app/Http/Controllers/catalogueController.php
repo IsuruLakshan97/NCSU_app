@@ -53,7 +53,7 @@ class catalogueController extends Controller
         }
         
         // dd($students);
-        return view('catalogue.student')->with('facultyCode', $facCode)->with('people', $people)->with('batch', $batch);
+        return view('catalogue.student')->with('facultyCode', $facCode)->with('people', $people)->with('batch', $batch)->with('facultyname',$fac_name);
         
     }
     
