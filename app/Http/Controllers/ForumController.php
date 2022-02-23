@@ -35,32 +35,14 @@ class ForumController extends Controller
             'address' => ['required','string', 'max:100'],
             'city' => ['required','string', 'max:100'],
             'date' => ['required','string'],
-            'regNo' => ['required','string', 'max:10','unique:people','regex:/^([A-Z]{1,2}\/{1}+\d{2}\/{1}+\d{3})/'],
+            'regNo' => ['required','string', 'max:10','unique:people','unique:verified_data', 'regex:/^([A-Z]{1,2}\/{1}+\d{2}\/{1}+\d{3})/'],
             'image' => ['required','image'],
             'faculty_id' => ['required','int','exists:faculties,id'],
             'batch_id' => ['required','int','exists:batches,id'],
             'department_id' => ['required','int', 'exists:departments,id'],
         ]);
 
-        //rename
-        $image1 = request('image');
-        $name = $data['username'].'.'.$image1->getClientOriginalExtension();
-
-        $file = new Filesystem();
-        $users = DB::table('faculties')->select('name')->where('id', '=', $data['faculty_id'])->first();
-        $username = $users->name;
-        $directory = 'uploads/' . $username;
-
-        if ( $file->isDirectory(storage_path($directory)) )
-        {
-            
-        }
-        else
-        {
-            $file->makeDirectory(storage_path($directory), 755, true, true);
-        }
-
-        $imagePath = request('image')->storeAs($directory,$name);
+        $imagePath = request('image')->storeAs('uploads','public');
        
             \App\Models\Person::create([
                 'fname' => $data['fname'],
