@@ -4,11 +4,58 @@
 <div class="container">
     @if ($user->is_admin === 1)
 
+    @section('charts')
+    <div class="container">
+    <div class="p-3 pb-3 rounded">
+            <h2 class="text-center">Database Insights</h2>
+        </div>
+    <div class="p-5 pb-3 rounded">
+            <h4 class="text-center">Total of Unverified | Verifed Students Vs Faculty Code</h4>
+        </div>
+    <!-- Chart's container -->
+    <div id="chart" style="height: 300px;"></div> 
+    <!-- Charting library -->
+    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
+    <!-- Your application script -->
+    <script>
+      const chart = new Chartisan({
+        el: '#chart',
+        url: "@chart('s_admin_chart')",
+        hooks: new ChartisanHooks()
+                .colors()
+                .legend()
+                .datasets(['bar','line']),
+      });
+    </script>
+
+    <div class="p-3 pb-3 rounded">
+            <h4 class="text-center">Total of Unverified | Verifed Students Vs Date created</h4>
+        </div>
+    <div id="chart2" style="height: 300px;"></div>
+    <!-- Your application script -->
+    <script>
+      const chart2 = new Chartisan({
+        el: '#chart2',
+        url: "@chart('s_admin_chart2')",
+        hooks: new ChartisanHooks()
+                .colors()
+                .legend()
+                .datasets(['bar','line']),
+      });
+    </script>
+    </div> 
+    @endsection
+
         @section('navbar')
         <a class="dropdown-item" href="/profile/create">Add new user</a>
         <a class="dropdown-item" href="/faculty/create">Add new faculty</a>
         @endsection
 
+        <div class="p-3 pb-3 rounded">
+            <h1 class="text-center font-weight-bold">Super-Admin Dashboard</h1>
+        </div>
         <div class ="table-responsive">
             <table class="table table-hover">
                 <thead>
@@ -54,7 +101,6 @@
                 </tbody>
             </table>
         </div>
-        
     @else
         <main class="container">
             <h1>Admin | {{$user->faculty->name}}</h1>
