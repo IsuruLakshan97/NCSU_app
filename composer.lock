@@ -315,7 +315,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "license": ["MIT"],
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Steve Bauman",
@@ -392,9 +394,16 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "license": ["MIT"],
+            "license": [
+                "MIT"
+            ],
             "description": "LDAP Authentication & Management for Laravel.",
-            "keywords": ["adldap2", "laravel", "ldap", "ldaprecord"],
+            "keywords": [
+                "adldap2",
+                "laravel",
+                "ldap",
+                "ldaprecord"
+            ],
             "support": {
                 "issues": "https://github.com/DirectoryTree/LdapRecord-Laravel/issues",
                 "source": "https://github.com/DirectoryTree/LdapRecord-Laravel/tree/v2.5.4"
@@ -5134,7 +5143,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "license": ["MIT"],
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Taylor Otwell",
@@ -5142,7 +5153,10 @@
                 }
             ],
             "description": "Collect - Illuminate Collections as a separate package.",
-            "keywords": ["collection", "laravel"],
+            "keywords": [
+                "collection",
+                "laravel"
+            ],
             "support": {
                 "issues": "https://github.com/tighten/collect/issues",
                 "source": "https://github.com/tighten/collect/tree/v8.83.1"
@@ -7691,5 +7705,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

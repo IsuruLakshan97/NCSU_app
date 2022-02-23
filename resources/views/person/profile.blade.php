@@ -2,7 +2,7 @@
 
 @section('content')
 <main class="container">
-    <h1>{{$user->faculty->name}}</h1>
+    <h1>{{$faculty_name}}</h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -19,7 +19,7 @@
            <div class="card">
                <div class="card-body">
                    <div class="d-flex flex-column align-items-center text-center">
-                        <img src="/storage/app/{{$person->image}}" alt="image" style="border-radius: 10%" width="250">
+                        <img src={{$person->image}} alt="{{"Profile Image: ".$person->username}}" style="border-radius: 10%" width="250">
                        <div class="mt-2">
                            <h4>{{$person->initial}}</h4>
                        </div>

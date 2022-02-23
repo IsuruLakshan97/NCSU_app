@@ -5,12 +5,11 @@
     <div class="container vh-75">
     <main class="container">
     <div class="p-3 pb-1 rounded">
-        <h3 class="text-left pb-1">Data Catalogue</h3>
-        <h1 class="text-center font-weight-bold">{{$facultyname}}</h1>
+        <h1 class="font-weight-bold">{{$facultyname}}</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/catalogue">Data Catalogue</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{$facultyCode}}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{$facultyname}}</li>
             </ol>
         </nav>
     </div>
