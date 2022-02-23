@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use \App\Models\Person;
 use App\Models\Department;
 use App\Models\Batch;
 use App\Models\Faculty;
 
 use Image;
-use DB;
-use Illuminate\Filesystem\Filesystem;
+use File;
 
 class ForumController extends Controller
 {
@@ -23,8 +23,60 @@ class ForumController extends Controller
         return view('forum.create')->with('fac', $faculties)->with('batch',$batches);
     }
 
+
+    /**
+     * Create the directory if not exists
+     * @return paths
+     */
+    private function createDirectory($faculty_id, $type, $batch_id) {
+        /**
+         * chmode codes has 3 digits (Owner, Group, World)
+         * Permission (4 = read only, 7 = read and write and execute)
+         */
+        $chmode = 744;
+        
+        $facultyCode = Faculty::findOrFail($faculty_id)->facultyCode;
+        $tmpPath = $facultyCode.'\\'.$type.'\\'.$batch_id.'\\';
+
+        // Define and initialize paths for different directories
+        $paths = [
+            'image_path' => public_path('uploads\images\\'.$tmpPath),
+            'thumbnail_path' => public_path('uploads\thumbs\\'.$tmpPath)
+        ];
+
+        // Create paths
+        foreach ($paths as $key => $path) {
+            if(!File::isDirectory($path)){
+                File::makeDirectory($path, $chmode, true, true);
+            }
+        }
+
+        return $tmpPath;
+    }
+
+    /**
+     * Change image name
+     * Save image in respective directory
+     */
+    private function storeImage($path, $regNo, $file) {     
+        // Create the image name
+        $number = explode('/', $regNo)[2];
+        // $imageName = $number.'.'.$file->getClientOriginalExtension();
+        $imageName = $number.'.png';
+
+        // Load the image, resize it and then save the profile image
+        $image = Image::make($file)->fit(400, 400);
+        $image->save(public_path('uploads\images\\'.$path).$imageName);
+
+        // Resize the image and save the tumbnail
+        $image->resize(150,150);
+        $image->save(public_path('uploads\thumbs\\'.$path).$imageName);
+
+        return '\uploads\images\\'.$path.$imageName;
+    }
+
     public function store(){
-        //dd(request()->all());
+        // dd(request()->all());
         
         $data = request()->validate([
             'fname' => ['required','string', 'max:20'],
@@ -42,23 +94,31 @@ class ForumController extends Controller
             'department_id' => ['required','int', 'exists:departments,id'],
         ]);
 
-        $imagePath = request('image')->storeAs('uploads','public');
-       
-            \App\Models\Person::create([
-                'fname' => $data['fname'],
-                'lname' => $data['lname'],
-                'username' => $data['username'],
-                'fullname' => $data['fullname'], 
-                'initial' => $data['initial'],
-                'address' => $data['address'],
-                'city' => $data['city'],
-                'date' => $data['date'],
-                'regNo' => $data['regNo'],
-                'image' => $imagePath,
-                'faculty_id' => $data['faculty_id'],
-                'batch_id' => $data['batch_id'],
-                'department_id' => $data['department_id'],
-            ]);
+        // Create the image directory if not exists
+        $paths = $this->createDirectory($data['faculty_id'], 'Student', $data['batch_id']);
+
+        // Store the image in the respective directory
+        $path = $this->storeImage($paths, $data['regNo'], $data['image']);
+
+        // Change the image path in the user data
+        $data['image'] = $path;
+        Person::create($data);
+
+        // Person::create([
+        //     'fname' => $data['fname'],
+        //     'lname' => $data['lname'],
+        //     'username' => $data['username'],
+        //     'fullname' => $data['fullname'], 
+        //     'initial' => $data['initial'],
+        //     'address' => $data['address'],
+        //     'city' => $data['city'],
+        //     'date' => $data['date'],
+        //     'regNo' => $data['regNo'],
+        //     'image' => $imagePath,
+        //     'faculty_id' => $data['faculty_id'],
+        //     'batch_id' => $data['batch_id'],
+        //     'department_id' => $data['department_id'],
+        // ]);
 
         return redirect('/forum/create')->with('message', 'Forum data entered Succesfully!!');
     }
