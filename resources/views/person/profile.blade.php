@@ -40,6 +40,24 @@
                <div class="card-body">
                    <div class="row">
                        <div class="col-sm-3">
+                            <span class="mb-0" style="font-weight: 500">First name</span>
+                       </div>
+                       <div class="col-sm-9 text-secondary">
+                            {{$person->fname}}
+                       </div>
+                   </div>
+                   <hr>
+                   <div class="row">
+                       <div class="col-sm-3">
+                            <span class="mb-0" style="font-weight: 500">Last name</span>
+                       </div>
+                       <div class="col-sm-9 text-secondary">
+                            {{$person->lname}}
+                       </div>
+                   </div>
+                   <hr>
+                   <div class="row">
+                       <div class="col-sm-3">
                             <span class="mb-0" style="font-weight: 500">Full Name</span>
                        </div>
                        <div class="col-sm-9 text-secondary">
@@ -94,19 +112,10 @@
                    <hr>
                    <div class="row">
                        <div class="col-sm-3">
-                            <span class="mb-0" style="font-weight: 500">Registration Number</span>
+                            <span class="mb-0" style="font-weight: 500">Username</span>
                        </div>
                        <div class="col-sm-9 text-secondary">
-                            {{$person->regNo}}
-                       </div>
-                   </div>
-                   <hr>
-                   <div class="row">
-                       <div class="col-sm-3">
-                            <span class="mb-0" style="font-weight: 500">Department</span>
-                       </div>
-                       <div class="col-sm-9 text-secondary">
-                            Computer Engineering
+                            {{$person->username}}
                        </div>
                    </div>
                </div>
