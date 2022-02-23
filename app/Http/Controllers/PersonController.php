@@ -43,24 +43,24 @@ class PersonController extends Controller
         verifiedData::firstOrCreate($data);
 
         //create a new user in AD
-        // try {
-        //     $user = new User();
+        try {
+            $user = new User();
 
-        //     $user->cn = $person->regNo;
-        //     $user->displayName = $person->fullname;
-        //     $user->givenName = $person->fname;
-        //     // $user->initials = $person->initial;
-        //     $user->sn = $person->lname;
-        //     $user->sAMAccountName = $person->username;
-        //     $user->streetAddress = $person->address;
-        //     $user->l = $person->city;
-        //     $user->department = $person->department->name;
+            $user->cn = $person->regNo;
+            $user->displayName = $person->fullname;
+            $user->givenName = $person->fname;
+            // $user->initials = $person->initial;
+            $user->sn = $person->lname;
+            $user->sAMAccountName = $person->username;
+            $user->streetAddress = $person->address;
+            $user->l = $person->city;
+            $user->department = $person->department->name;
 
-        //     $user->save();
+            $user->save();
 
-        // } catch (\Throwable $th) {
-        //     dd($th);
-        // }
+        } catch (\Throwable $th) {
+            abort(500, 'Error{$th}');
+        }
 
         $person->delete();
 
