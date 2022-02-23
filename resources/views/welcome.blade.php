@@ -7,7 +7,7 @@
     <script src="/js/jquery.js"></script>
     <script src="/js/nicepage.js"></script>
 </head>
-  
+
 @section('content')
 
 <div class="container2" style="background-image:url(/img/back3.jpg);">
